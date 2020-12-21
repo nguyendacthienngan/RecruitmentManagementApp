@@ -13,6 +13,7 @@ class BasicCounterPresenter implements CounterPresenter {
 
   BasicCounterPresenter() {
     this._counterViewModel = new CounterViewModel(0);
+    this._counterView = new CounterView();
   }
 
   @override
