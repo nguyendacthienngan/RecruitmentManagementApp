@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../enums.dart';
-import '../ui/pages/home/view/home_view.dart';
+import '../pages/home/view/home_view.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
 

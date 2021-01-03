@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'services/auth.service.dart';
-import 'ui/pages/login/view/login_view.dart';
-import 'ui/pages/home/view/home_view.dart';
+import 'pages/login/view/login_view.dart';
+import 'pages/home/view/home_view.dart';
 AuthService appAuth = new AuthService();
 bool _showNavBar = true; //this is to show nav bar
 Widget screen = new LoginPage();

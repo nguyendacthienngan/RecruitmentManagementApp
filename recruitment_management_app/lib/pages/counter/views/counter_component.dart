@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recruitment_management_app/ui/counter/presenter/counter_presenter.dart';
-import 'package:recruitment_management_app/ui/counter/viewmodel/counter_viewmodel.dart';
-import 'package:recruitment_management_app/ui/counter/views/counter_view.dart';
+import 'package:recruitment_management_app/pages/counter/presenter/counter_presenter.dart';
+import 'package:recruitment_management_app/pages/counter/model/counter_viewmodel.dart';
+import 'package:recruitment_management_app/pages/counter/views/counter_view.dart';
 
 
 class MyHomePage extends StatefulWidget {

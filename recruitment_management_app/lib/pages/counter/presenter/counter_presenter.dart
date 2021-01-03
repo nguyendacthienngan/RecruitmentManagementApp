@@ -1,5 +1,5 @@
-import 'package:recruitment_management_app/ui/counter/viewmodel/counter_viewmodel.dart';
-import 'package:recruitment_management_app/ui/counter/views/counter_view.dart';
+import 'package:recruitment_management_app/pages/counter/model/counter_viewmodel.dart';
+import 'package:recruitment_management_app/pages/counter/views/counter_view.dart';
 
 class CounterPresenter {
   void onButton1Clicked() {}
