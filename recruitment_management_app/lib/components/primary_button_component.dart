@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-
+import '../constants.dart';
 class PrimaryButton extends StatefulWidget {
   final String btnText;
   PrimaryButton({this.btnText});
@@ -14,7 +14,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
     // TODO: implement build
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFB40284A),
+        gradient: kPrimaryGradientColor,
         borderRadius: BorderRadius.circular(50),
       ),
       padding: EdgeInsets.all(20),

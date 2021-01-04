@@ -1,12 +1,13 @@
 
-import 'package:recruitment_management_app/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 
+
+import '../../../constants.dart';
+import '../../../main.dart';
 import './component/input_with_icon_component.dart';
-import 'component/primary_button_component.dart';
-import 'component/outline_button_component.dart';
+import '../../../components/primary_button_component.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -68,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
     switch(_pageState) {
       case 0:
         _backgroundColor = Colors.white;
-        _headingColor = Color(0xFFB40284A);
+        _headingColor = kPrimaryColor;
 
         _loginOpacity = 1;
 
@@ -79,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
         break;
 
       case 1:
-        _backgroundColor = Color(0xFFBD34C59);
+        _backgroundColor = kPrimaryColor;
         _headingColor = Colors.white;
 
         _loginOpacity = 1;
@@ -125,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                                       top: 100
                                   ),
                                   child: Text(
-                                    "Learn Free",
+                                    "Welcome",
                                     style: TextStyle(
                                       color: _headingColor,
                                       fontSize: 28,
@@ -138,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                                       horizontal: 32
                                   ),
                                   child: Text(
-                                    "We make learning easy. Join WeebsHR to learn flutter for free",
+                                    "Our product pursues meeting the demans of human resource management",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: _headingColor,
@@ -177,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                           padding: EdgeInsets.all(20),
                           width: double.infinity,
                           decoration: BoxDecoration(
-                              color: Color(0xFFB40284A),
+                              gradient: kPrimaryGradientColor,
                               borderRadius: BorderRadius.circular(50)
                           ),
                           child: Center(
@@ -212,12 +213,12 @@ class _LoginPageState extends State<LoginPage> {
                   )
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(bottom: 20),
+                        margin: EdgeInsets.only(bottom: 30),
                         child: Text(
                           "Login To Continue",
                           style: TextStyle(
@@ -229,11 +230,13 @@ class _LoginPageState extends State<LoginPage> {
                           icon: Icons.email,
                           hint: "Enter email..."
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 30),
                       InputWithIcon(
                           icon: Icons.vpn_key,
                           hint: "Enter password..."
                       ),
+                      SizedBox(height: 30),
+
                     ],
                   ),
                   Column(
@@ -250,8 +253,16 @@ class _LoginPageState extends State<LoginPage> {
                         height: 20,
                       ),
                       GestureDetector(
-                        child: OutlineBtn(
-                          btnText: "Create Account",
+                        onTap: () {
+                          setState(() {
+                            _pageState = 0;
+
+                          });
+                        },
+                        child: Center(
+                          child: Text(
+                            "Back"
+                          )
                         ),
                       )
 
