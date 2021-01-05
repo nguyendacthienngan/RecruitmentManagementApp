@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+
 class InputWithIcon extends StatefulWidget {
 
   final IconData icon;
@@ -15,7 +15,10 @@ class _InputWithIconState extends State<InputWithIcon> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: kPrimaryColor,
+        border: Border.all(
+          color: Color(0xFFBC7C7C7),
+          width: 2
+        ),
         borderRadius: BorderRadius.circular(50)
       ),
       child: Row(
@@ -25,14 +28,12 @@ class _InputWithIconState extends State<InputWithIcon> {
               child: Icon(
                 widget.icon,
                 size: 20,
-                color: Colors.white,
+                color: Color(0xFFBB9B9B9),
               ),
           ),
           Expanded(
             child: TextField(
-              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                hintStyle: TextStyle(color: Colors.white),
                 contentPadding: EdgeInsets.symmetric(vertical: 20),
                 border: InputBorder.none,
                 hintText: widget.hint,
