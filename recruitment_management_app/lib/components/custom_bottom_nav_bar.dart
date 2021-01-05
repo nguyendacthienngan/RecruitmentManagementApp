@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import '../enums.dart';
 import '../pages/home/view/home_view.dart';
 
@@ -41,7 +42,11 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(Icons.calendar_today),
-
+                onPressed: () =>
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => CalendarPage()),
+                            (Route<dynamic> route) => false,),
               ),
               IconButton(
                 icon: Icon(Icons.timer),

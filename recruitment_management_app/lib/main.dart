@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import 'services/auth.service.dart';
 import 'pages/login/view/login_view.dart';
 import 'pages/home/view/home_view.dart';
@@ -30,9 +31,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         // Set routes for using the Navigator.
-        '/': (BuildContext context) => new LoginPage(),
+        //'/': (BuildContext context) => new LoginPage(),
+        '/': (BuildContext context) => new CalendarPage(),
         '/home': (BuildContext context) =>  new HomePage(),
-        '/login': (BuildContext context) => new LoginPage()
+        '/login': (BuildContext context) => new LoginPage(),
+        '/calendar': (BuildContext context) => new CalendarPage(),
       },
     );
   }
