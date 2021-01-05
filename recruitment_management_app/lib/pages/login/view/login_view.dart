@@ -6,7 +6,7 @@ import 'package:recruitment_management_app/components/custom_card.dart';
 
 import '../../../constants.dart';
 import '../../../main.dart';
-import '../../../components/input_with_icon_component.dart';
+import '../../../components/input/input_with_icon_component.dart';
 import '../../../components/button/primary_button_component.dart';
 import '../../../components/divider_top_card_component.dart';
 class LoginPage extends StatefulWidget {
