@@ -26,7 +26,6 @@ class _PrimaryButtonState extends State<PrimaryButton> {
               color: Colors.white,
               fontSize: 16,
             )),
-
       ),
     );
   }
