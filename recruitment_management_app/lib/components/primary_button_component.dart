@@ -11,10 +11,10 @@ class PrimaryButton extends StatefulWidget {
 class _PrimaryButtonState extends State<PrimaryButton> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
+      width: 200,
       decoration: BoxDecoration(
-        gradient: kPrimaryGradientColor,
+        color: kPrimaryColor,
         borderRadius: BorderRadius.circular(50),
       ),
       padding: EdgeInsets.all(20),

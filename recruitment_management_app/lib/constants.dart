@@ -9,3 +9,4 @@ const kPrimaryGradientColor = LinearGradient(
   colors: [Color(0xFF20CEF5), Color(0xFF3392D7)],
 );
 const kSecondaryColor = Color(0xFFF9F8F6);
+const kThirdColor = Color(0xFF828281);

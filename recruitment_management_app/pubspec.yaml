@@ -52,3 +52,12 @@ flutter:
      - family: Nunito
        fonts:
          - asset: assets/fonts/Nunito-Bold.ttf
+     - family: Karla
+       fonts:
+         - asset: assets/fonts/Karla-Regular.ttf
+         - asset: assets/fonts/Karla-Bold.ttf
+           weight: 700
+         - asset: assets/fonts/Karla-SemiBold.ttf
+           weight: 600
+         - asset: assets/fonts/Karla-Italic.ttf
+           style: italic
