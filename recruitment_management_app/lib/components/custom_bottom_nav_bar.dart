@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/pages/profile/view/profile_view.dart';
 import '../enums.dart';
 import '../pages/home/view/home_view.dart';
-
+import 'linear_gradient_mask.dart';
 class CustomBottomNavBar extends StatelessWidget {
 
   const CustomBottomNavBar({
@@ -13,6 +15,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color inActiveIconColor = Color(0xFFB6B6B6);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
@@ -35,7 +38,11 @@ class CustomBottomNavBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                icon: Icon(Icons.home),
+                icon: LinearGradientMask(
+                  child: Icon(
+                    Icons.home,
+                  ),
+                ),
                 onPressed: () =>
                     Navigator.pushNamed(context, HomePage.routeName),
               ),
@@ -54,7 +61,7 @@ class CustomBottomNavBar extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.people),
                 onPressed: () =>
-                    Navigator.pushNamed(context, HomePage.routeName),
+                    Navigator.pushNamed(context, ProfilePage.routeName),
               ),
             ],
           )),

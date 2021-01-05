@@ -6,9 +6,9 @@ import 'package:keyboard_visibility/keyboard_visibility.dart';
 
 import '../../../constants.dart';
 import '../../../main.dart';
-import '../../../components/button/input_with_icon_component.dart';
+import '../../../components/input_with_icon_component.dart';
 import '../../../components/button/primary_button_component.dart';
-
+import '../../../components/divider_top_card_component.dart';
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -219,14 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: 12,
                         ),
-                        Container(
-                          width: MediaQuery.of(context).size.width /2,
-                          height: 5,
-                          decoration: BoxDecoration(
-                              color: kPrimaryColor,
-                              borderRadius: BorderRadius.circular(50)
-                          ),
-                        ),
+                        DividerTopCard(),
                         SizedBox(
                           height: 20,
                         ),
@@ -249,7 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                             icon: Icons.vpn_key,
                             hint: "Enter password..."
                         ),
-                        SizedBox(height: 30),
+                        SizedBox(height: 50),
 
                       ],
                     ),
