@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
+import 'package:recruitment_management_app/components/custom_card.dart';
 
 
 import '../../../constants.dart';
@@ -19,16 +20,12 @@ class _LoginPageState extends State<LoginPage> {
   var _backgroundColor = Colors.white;
   var _headingColor = Color(0xFFB40284A);
 
-  double _loginOpacity = 1;
 
   double _loginWidth = 0;
   double _loginHeight = 0;
 
-  double _registerHeight = 0;
 
   double _loginYOffset = 0;
-  double _loginXOffset = 0;
-  double _registerYOffset = 0;
 
   double windowWidth = 0;
   double windowHeight = 0;
@@ -53,7 +50,6 @@ class _LoginPageState extends State<LoginPage> {
       appAuth.login().then((result) {
         Navigator.of(context).pushReplacementNamed('/home');
       });
-      // _pageState = 2;
     });
   }
 
@@ -64,35 +60,23 @@ class _LoginPageState extends State<LoginPage> {
     windowHeight = MediaQuery.of(context).size.height;
 
     _loginHeight = windowHeight - 230;
-    _registerHeight = windowHeight - 230;
 
     switch(_pageState) {
       case 0:
         _backgroundColor = Colors.white;
         _headingColor = kPrimaryColor;
 
-        _loginOpacity = 1;
-
         _loginWidth = windowWidth;
-        _loginXOffset = 0;
         _loginYOffset = windowHeight;
-        _registerYOffset = windowHeight;
         break;
 
       case 1:
         _backgroundColor = kSecondaryColor;
         _headingColor = kPrimaryColor;
 
-        _loginOpacity = 1;
-
         _loginWidth = windowWidth;
-
-        _loginXOffset = 0;
-
         _loginYOffset = _keyboardVisible ? 40 : 230;
         _loginHeight = _keyboardVisible ? windowHeight : windowHeight - 230;
-
-        _registerYOffset = windowHeight;
         break;
     }
 
@@ -186,31 +170,33 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   )
               ),
-              AnimatedContainer(
-                padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
-                width: _loginWidth,
-                height: _loginHeight,
-                curve: Curves.fastLinearToSlowEaseIn,
-                duration: Duration(
-                    milliseconds: 1000
-                ),
-                transform: Matrix4.translationValues(_loginXOffset, _loginYOffset, 1),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(_loginOpacity),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25)
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                ),
-
+              // AnimatedContainer(
+              //   padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
+              //   width: _loginWidth,
+              //   height: _loginHeight,
+              //   curve: Curves.fastLinearToSlowEaseIn,
+              //   duration: Duration(
+              //       milliseconds: 1000
+              //   ),
+              //   transform: Matrix4.translationValues(0, _loginYOffset, 1),
+              //   decoration: BoxDecoration(
+              //     color: Colors.white.withOpacity(1),
+              //     borderRadius: BorderRadius.only(
+              //         topLeft: Radius.circular(25),
+              //         topRight: Radius.circular(25)
+              //     ),
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.grey.withOpacity(0.5),
+              //         spreadRadius: 5,
+              //         blurRadius: 7,
+              //         offset: Offset(0, 3), // changes position of shadow
+              //       ),
+              //     ],
+              //   ),
+              CustomCard(
+                isVisible: _pageState == 0 ? false : true,
+                context: context,
                 child: Column(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -264,7 +250,6 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: () {
                             setState(() {
                               _pageState = 0;
-
                             });
                           },
                           child: Center(
