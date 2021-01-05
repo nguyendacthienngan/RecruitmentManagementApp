@@ -6,8 +6,8 @@ import 'package:keyboard_visibility/keyboard_visibility.dart';
 
 import '../../../constants.dart';
 import '../../../main.dart';
-import '../../../components/input_with_icon_component.dart';
-import '../../../components/primary_button_component.dart';
+import '../../../components/button/input_with_icon_component.dart';
+import '../../../components/button/primary_button_component.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -169,7 +169,6 @@ class _LoginPageState extends State<LoginPage> {
                               }
                               else {
                                 _pageState = 1;
-
                               }
                             });
                           },
@@ -177,18 +176,9 @@ class _LoginPageState extends State<LoginPage> {
                             margin: EdgeInsets.all(32),
                             padding: EdgeInsets.all(20),
                             width: double.infinity,
-                            decoration: BoxDecoration(
-                                gradient: kPrimaryGradientColor,
-                                borderRadius: BorderRadius.circular(50)
-                            ),
-                            child: Center(
-                              child: Text(
-                                  "Get Started",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                  )
-                              ),
+                            child: PrimaryButton(
+                              width: 200,
+                              btnText: "Get Started",
                             ),
                           ),
                         ),
@@ -197,7 +187,6 @@ class _LoginPageState extends State<LoginPage> {
                   )
               ),
               AnimatedContainer(
-
                 padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
                 width: _loginWidth,
                 height: _loginHeight,
@@ -272,6 +261,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           child: PrimaryButton(
                             btnText: "Login",
+                            width: 200,
                           ),
                         ),
                         SizedBox(
