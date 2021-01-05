@@ -25,15 +25,16 @@ class _BodyState extends State<Body>{
   @override
   Widget build(BuildContext context) {
     return Container(
-      child:SingleChildScrollView(
-        child: Column(
-          children: [
-            CalendarCustom(
+        child:SingleChildScrollView(
+          child: Column(
+            children: [
+              CalendarCustom(
                 calendarController: calendarController,
-            ),
-          ],
-        ),
-      )
+              ),
+            ],
+          ),
+        )
+
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/pages/profile/view/profile_view.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
+import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import '../enums.dart';
 import '../pages/home/view/home_view.dart';
 
@@ -98,6 +99,11 @@ class CustomBottomNavBar extends StatelessWidget {
                         Icons.timer,
                         color: selectedMenu == MenuState.timeOff ? kPrimaryColor : inActiveIconColor,
                       ),
+                      onPressed: () =>
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => TimeOffPage()),
+                                (Route<dynamic> route) => false,),
                     ),
                   ),
                   Text(
