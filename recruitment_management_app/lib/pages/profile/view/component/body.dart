@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/main.dart';
-
+import '../../../../components/label_component.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,7 +8,23 @@ class Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: new Column(
           children: <Widget>[
-              new Text('Profile'),
+              //new Text('Profile'),
+            CustomLabel(
+              title: "Full name:",
+              content: "Nguyen Dac Thien Ngan",
+            ),
+            CustomLabel(
+              title: "Full name:",
+              content: "Nguyen Dac Thien Ngan",
+            ),
+            CustomLabel(
+              title: "Full name:",
+              content: "Nguyen Dac Thien Ngan",
+            ),
+            CustomLabel(
+              title: "Address:",
+              content: "239/22 Nguyen Van Cong P3 Quan Go Vap AAAAAAAAAA",
+            ),
           ],
         ),
       ),
