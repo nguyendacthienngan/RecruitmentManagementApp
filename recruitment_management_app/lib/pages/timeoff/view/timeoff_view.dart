@@ -27,6 +27,7 @@ class _TimeOffPageState extends State<TimeOffPage>{
           ),
         ),
         backgroundColor: kSecondaryColor,
+        elevation: 0,
       ),
       body: Body(),
       bottomNavigationBar: CustomBottomNavBar(
