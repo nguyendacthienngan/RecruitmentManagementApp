@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
+import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import 'services/auth.service.dart';
 import 'pages/login/view/login_view.dart';
 import 'pages/home/view/home_view.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/login': (BuildContext context) => new LoginPage(),
         '/profile': (BuildContext context) => new ProfilePage(),
         '/calendar': (BuildContext context) => new CalendarPage(),
+        '/timeoff': (BuildContext context) => new TimeOffPage(),
       },
     );
   }
