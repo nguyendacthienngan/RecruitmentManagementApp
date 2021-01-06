@@ -3,6 +3,8 @@ import 'package:recruitment_management_app/constants.dart';
 import 'package:intl/intl.dart';
 
 class CustomDatePicker extends StatefulWidget{
+  final double width;
+  CustomDatePicker({this.width});
   @override
   _CustomDatePickerState createState() => _CustomDatePickerState();
   
@@ -41,7 +43,7 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
       child: Column(
         children: <Widget>[
           SizedBox(
-            width: 200,
+            width: widget.width,
             height: 50,
             child: TextFormField(
               textAlign: TextAlign.center,
@@ -52,8 +54,15 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
                 });
               },
               decoration: InputDecoration(
+                hintStyle: TextStyle(
+                  color: Colors.black,
+                ),
                 hintText: formattedDate,
                 focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: kPrimaryColor, width: 3.0),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: kPrimaryColor, width: 3.0),
                   borderRadius: BorderRadius.circular(25),
                 ),
