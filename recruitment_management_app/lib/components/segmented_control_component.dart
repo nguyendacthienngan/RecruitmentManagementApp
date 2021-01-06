@@ -23,7 +23,6 @@ class _SegmentedControlState extends State<SegmentedControl>{
         unselectedColor: kPrimaryColor,
         borderRadius: 15.0,
         verticalOffset: 10.0,
-        horizontalPadding: EdgeInsets.fromLTRB(0, 5, 0, 0),
         onSegmentChosen: (index) {
           setState(() {
             _currentSelection = index;
