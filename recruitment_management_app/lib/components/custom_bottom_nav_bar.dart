@@ -50,10 +50,15 @@ class CustomBottomNavBar extends StatelessWidget {
                           color: selectedMenu == MenuState.home ? kPrimaryColor : inActiveIconColor,
                       ),
                       onPressed: () =>
+                      {
+                        if (selectedMenu != MenuState.home)
+                        {
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(builder: (context) => HomePage()),
                                 (Route<dynamic> route) => false,),
+                        }
+                      }
                     ),
                   ),
                   Text(
@@ -75,10 +80,15 @@ class CustomBottomNavBar extends StatelessWidget {
                         color: selectedMenu == MenuState.calendar ? kPrimaryColor : inActiveIconColor,
                       ),
                       onPressed: () =>
+                      {
+                        if (selectedMenu != MenuState.calendar)
+                        {
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(builder: (context) => CalendarPage()),
                                 (Route<dynamic> route) => false,),
+                        }
+                      }
                     ),
                   ),
                   Text(
@@ -100,10 +110,16 @@ class CustomBottomNavBar extends StatelessWidget {
                         color: selectedMenu == MenuState.timeOff ? kPrimaryColor : inActiveIconColor,
                       ),
                       onPressed: () =>
+                      {
+                        if (selectedMenu != MenuState.timeOff)
+                        {
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(builder: (context) => TimeOffPage()),
                                 (Route<dynamic> route) => false,),
+                        }
+                      }
+
                     ),
                   ),
                   Text(
@@ -145,10 +161,15 @@ class CustomBottomNavBar extends StatelessWidget {
                         color: selectedMenu == MenuState.profile ? kPrimaryColor : inActiveIconColor,
                       ),
                       onPressed: () =>
+                      {
+                        if (selectedMenu != MenuState.profile)
+                        {
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(builder: (context) => ProfilePage()),
                                 (Route<dynamic> route) => false,),
+                        }
+                      }
                     ),
                   ),
                   Text(

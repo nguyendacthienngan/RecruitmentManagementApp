@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruitment_management_app/components/custom_card.dart';
+import 'package:recruitment_management_app/components/card/custom_card.dart';
 
 
 import '../../../constants.dart';

@@ -14,6 +14,8 @@ class _InputWithIconState extends State<InputWithIcon> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(left: 16, right: 16),
+      margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
         //color: kPrimaryColor,
           border: Border.all(

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/components/button/small_gradient_button.dart';
 import 'package:recruitment_management_app/components/label/label_title_component.dart';
-import 'button/small_cancel_button.dart';
+import '../button/small_cancel_button.dart';
 
 class CustomCardLabel extends StatelessWidget {
   final String title;

@@ -7,13 +7,15 @@ class DarkInputWithIcon extends StatefulWidget {
   DarkInputWithIcon({this.icon, this.hint});
 
   @override
-  _InputWithIconState createState() => _InputWithIconState();
+  _DarkInputWithIconState createState() => _DarkInputWithIconState();
 }
 
-class _InputWithIconState extends State<DarkInputWithIcon> {
+class _DarkInputWithIconState extends State<DarkInputWithIcon> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(left: 16, right: 16),
+      margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: kPrimaryColor,
           border: Border.all(
