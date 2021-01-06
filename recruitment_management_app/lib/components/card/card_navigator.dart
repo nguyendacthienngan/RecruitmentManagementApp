@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 class CardNavigator extends StatelessWidget {
+  final String title;
+  final GestureTapCallback onTap;
+  CardNavigator({this.title, this.onTap});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        margin: EdgeInsets.only(left: 20, right: 20),
-        padding: EdgeInsets.all(20),
+        margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+        padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white.withOpacity(1),
           borderRadius: BorderRadius.only(
@@ -20,7 +23,10 @@ class CardNavigator extends StatelessWidget {
               Expanded(
                 flex: 11,
                 child: Text(
-                    "Personal Info"
+                    title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
                 ),
               ),
               Expanded(
@@ -31,6 +37,7 @@ class CardNavigator extends StatelessWidget {
               )
             ],
           ),
+          onTap: onTap,
         ),
       ),
     );
