@@ -1,22 +1,23 @@
 
 import 'package:flutter/material.dart';
 import '../../constants.dart';
-class PrimaryButton extends StatefulWidget {
+class GradientButton extends StatefulWidget {
   final String btnText;
   final double width;
-  PrimaryButton({this.btnText, this.width});
+  final GestureTapCallback onPressed;
+  GradientButton({this.btnText, this.width, this.onPressed});
   @override
-  _PrimaryButtonState createState() => _PrimaryButtonState();
+  _GradientButtonState createState() => _GradientButtonState();
 }
 
-class _PrimaryButtonState extends State<PrimaryButton> {
+class _GradientButtonState extends State<GradientButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: widget.width,
       decoration: BoxDecoration(
         gradient: kPrimaryGradientColor,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(25),
       ),
       padding: EdgeInsets.all(20),
       child: Center(

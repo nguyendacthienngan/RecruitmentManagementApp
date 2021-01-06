@@ -1,16 +1,17 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../constants.dart';
-class PrimaryButton extends StatefulWidget {
+class SmallPrimaryButton extends StatefulWidget {
   final String btnText;
   final double width;
   final GestureTapCallback onPressed;
-  PrimaryButton({this.btnText, this.width, this.onPressed});
+  SmallPrimaryButton({this.btnText, this.width, this.onPressed});
   @override
-  _PrimaryButtonState createState() => _PrimaryButtonState();
+  _SmallPrimaryButtonState createState() => _SmallPrimaryButtonState();
 }
 
-class _PrimaryButtonState extends State<PrimaryButton> {
+class _SmallPrimaryButtonState extends State<SmallPrimaryButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,13 +20,14 @@ class _PrimaryButtonState extends State<PrimaryButton> {
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(25),
       ),
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
       child: Center(
         child: Text(
             widget.btnText,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 14,
             )),
 
       ),

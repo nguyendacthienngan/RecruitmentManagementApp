@@ -1,31 +1,32 @@
 
 import 'package:flutter/material.dart';
 import '../../constants.dart';
-class PrimaryButton extends StatefulWidget {
+class SmallGradientButton extends StatefulWidget {
   final String btnText;
   final double width;
   final GestureTapCallback onPressed;
-  PrimaryButton({this.btnText, this.width, this.onPressed});
+  SmallGradientButton({this.btnText, this.width, this.onPressed});
   @override
-  _PrimaryButtonState createState() => _PrimaryButtonState();
+  _SmallGradientButtonState createState() => _SmallGradientButtonState();
 }
 
-class _PrimaryButtonState extends State<PrimaryButton> {
+class _SmallGradientButtonState extends State<SmallGradientButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: widget.width,
       decoration: BoxDecoration(
-        color: kPrimaryColor,
-        borderRadius: BorderRadius.circular(25),
+        gradient: kPrimaryGradientColor,
+        borderRadius: BorderRadius.circular(10),
       ),
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
       child: Center(
         child: Text(
             widget.btnText,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 14,
             )),
 
       ),
