@@ -8,7 +8,7 @@ import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/components/calendar_component.dart';
 import 'package:recruitment_management_app/components/button/primary_button_component.dart';
 import 'package:recruitment_management_app/components/segmented_control_component.dart';
-import 'file:///E:/hoc/HK1-2020-2021/OOAD-Mobile/RecruitmentManagementApp/recruitment_management_app/lib/components/datetimepicker/textfield_datepicker.dart';
+import 'package:recruitment_management_app/components/datetimepicker/textfield_datepicker.dart';
 
 class Body extends StatefulWidget{
   @override
