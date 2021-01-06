@@ -5,7 +5,7 @@ import 'package:recruitment_management_app/components/button/back_button_compone
 import 'package:recruitment_management_app/components/custom_card_label_component.dart';
 import 'package:recruitment_management_app/components/input/dark_input_with_icon_component.dart';
 import 'package:recruitment_management_app/main.dart';
-import '../../../../components/label_component.dart';
+import '../../../../components/label/label_info_component.dart';
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,8 +44,10 @@ class Body extends StatelessWidget {
               icon: Icons.email
             ),
             CustomCardLabel(
-              title: "Hello",
-              content: "Hello",
+              title: "Chung Thai Dung",
+              content1: "Web Intern",
+              content2: "4 days | 12/7/2020 ~15/7/2020",
+              content3: "Leave type: Sick leave",
             ),
           ],
         ),
