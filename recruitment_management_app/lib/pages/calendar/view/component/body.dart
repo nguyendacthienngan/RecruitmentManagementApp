@@ -6,6 +6,7 @@ import 'package:recruitment_management_app/main.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/components/calendar_component.dart';
 import 'package:recruitment_management_app/components/button/primary_button_component.dart';
+import 'package:recruitment_management_app/components/segmented_control_component.dart';
 
 
 class Body extends StatefulWidget{
@@ -25,12 +26,21 @@ class _BodyState extends State<Body>{
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: kSecondaryColor,
       child:SingleChildScrollView(
         child: Column(
           children: [
+            SegmentedControl(
+            ),
             CalendarCustom(
                 calendarController: calendarController,
             ),
+            new Text(
+              'My time off',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),)
           ],
         ),
       )

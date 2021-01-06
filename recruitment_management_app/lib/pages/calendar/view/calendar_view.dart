@@ -7,6 +7,7 @@ import './component/body.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/components/custom_bottom_nav_bar.dart';
 
+
 class CalendarPage extends StatefulWidget{
   static String routeName = "/calendar";
   @override
@@ -27,11 +28,11 @@ class _CalendarPageState extends State<CalendarPage>{
           ),
         ),
         backgroundColor: kSecondaryColor,
+        elevation: 0,
       ),
       body: Body(),
       bottomNavigationBar: CustomBottomNavBar(
         selectedMenu: MenuState.calendar,
-
       ),
     );
   }
