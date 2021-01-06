@@ -34,11 +34,27 @@ class _SegmentedControlState extends State<SegmentedControl>{
   }
 }
 Map<int, Widget> _children = {
-  0: Text('  MINE  ',style: TextStyle(
-    fontWeight: FontWeight.bold,
-  ),),
-  1: Text('  TEAM  ',style: TextStyle(
-    fontWeight: FontWeight.bold,
-  ),),
+  0: SizedBox(
+    width: 100,
+    child: Center(
+      child: Text(
+        'MINE',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ),
+  1: SizedBox(
+    width: 100,
+    child: Center(
+      child: Text(
+        'TEAM',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ),
 };
 
