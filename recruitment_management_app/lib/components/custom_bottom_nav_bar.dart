@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/pages/checkin/view/checkin_view.dart';
 import 'package:recruitment_management_app/pages/profile/view/profile_view.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
@@ -140,6 +141,16 @@ class CustomBottomNavBar extends StatelessWidget {
                         Icons.camera,
                         color: selectedMenu == MenuState.checkIn ? kPrimaryColor : inActiveIconColor,
                       ),
+                      onPressed: () =>
+                      {
+                        if (selectedMenu != MenuState.checkIn)
+                          {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => CheckInPage()),
+                                  (Route<dynamic> route) => false,),
+                          }
+                      }
                     ),
                   ),
                   Text(
