@@ -6,7 +6,6 @@ class CustomLabelTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(30, 6, 30, 0),
       child: Text(
           title,
           style: TextStyle(
