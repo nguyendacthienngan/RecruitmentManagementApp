@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recruitment_management_app/main.dart';
 import 'package:recruitment_management_app/pages//profile/user_profile/view/component/card_navigator.dart';
 import 'package:recruitment_management_app/components/dropdown/white_dropdown_button_component.dart';
@@ -34,12 +33,15 @@ class Body extends StatelessWidget {
               ),
               CardNavigator(
                 title: "Job Information",
-                  onTap: () => {
-                    Navigator.pushNamed(context, '/jobInfo')
-                  }
+                onTap: () => {
+                  Navigator.pushNamed(context, '/jobInfo')
+                }
               ),
               CardNavigator(
                 title: "Company Info",
+                onTap: () => {
+                  Navigator.pushNamed(context, '/companyInfo')
+                }
               ),
               CardNavigator(
                 title: "Log Out",

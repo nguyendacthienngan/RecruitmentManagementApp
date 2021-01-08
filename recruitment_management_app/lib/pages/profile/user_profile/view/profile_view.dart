@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import 'package:recruitment_management_app/components/custom_bottom_nav_bar.dart';
 import 'package:recruitment_management_app/main.dart';
 import 'package:recruitment_management_app/enums.dart';
