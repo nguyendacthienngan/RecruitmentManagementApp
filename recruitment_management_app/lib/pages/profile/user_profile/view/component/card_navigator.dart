@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants.dart';
+import 'package:recruitment_management_app/constants.dart';
 class CardNavigator extends StatelessWidget {
   final String title;
   final GestureTapCallback onTap;

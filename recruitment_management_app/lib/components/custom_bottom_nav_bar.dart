@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/pages/checkin/view/checkin_view.dart';
-import 'package:recruitment_management_app/pages/profile/view/profile_view.dart';
+import 'package:recruitment_management_app/pages/profile/user_profile/view/profile_view.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import '../enums.dart';

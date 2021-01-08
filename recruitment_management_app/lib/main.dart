@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
+import 'package:recruitment_management_app/pages/profile/personal_info/details/view/personal_info_details_view.dart';
+import 'package:recruitment_management_app/pages/profile/personal_info/edit/view/personal_info_edit_view.dart';
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import 'services/auth.service.dart';
 import 'pages/login/view/login_view.dart';
 import 'pages/home/view/home_view.dart';
-import 'pages/profile/view/profile_view.dart';
+import 'pages/profile/user_profile//view/profile_view.dart';
 AuthService appAuth = new AuthService();
 bool _showNavBar = true; //this is to show nav bar
 Widget screen = new LoginPage();
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
         '/profile': (BuildContext context) => new ProfilePage(),
         '/calendar': (BuildContext context) => new CalendarPage(),
         '/timeoff': (BuildContext context) => new TimeOffPage(),
+        '/personalInfo': (BuildContext contexxt) => new PersonalInfoPage(),
+        '/personalInfoEdit': (BuildContext contexxt) => new PersonalInfoEdit(),
       },
     );
   }

@@ -7,7 +7,7 @@ class CustomLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 32),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -17,7 +17,7 @@ class CustomLabel extends StatelessWidget {
                 title,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  fontSize: 16
+                  fontSize: 14
                 ),
               ),
             ),
@@ -27,7 +27,7 @@ class CustomLabel extends StatelessWidget {
                 child: Text(
                   content,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),

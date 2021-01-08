@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/components/button/small_gradient_button.dart';
-import 'package:recruitment_management_app/components/label/label_title_component.dart';
+import 'package:recruitment_management_app/components/label/label_card_component.dart';
 import '../button/small_cancel_button.dart';
 
 class CustomCardLabel extends StatelessWidget {
@@ -26,7 +26,7 @@ class CustomCardLabel extends StatelessWidget {
             SizedBox(
                 height: 10
             ),
-            CustomLabelTitle(
+            CustomLabelCard(
               text: Text(
                 title,
                 style: TextStyle(
@@ -37,7 +37,7 @@ class CustomCardLabel extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(left: 20),
-              child: CustomLabelTitle(
+              child: CustomLabelCard(
                   text: Text(
                     content1,
                     style: TextStyle(
@@ -48,7 +48,7 @@ class CustomCardLabel extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(left: 20),
-              child: CustomLabelTitle(
+              child: CustomLabelCard(
                   text: Text(
                     content2,
                     style: TextStyle(
@@ -59,7 +59,7 @@ class CustomCardLabel extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(left: 20),
-              child: CustomLabelTitle(
+              child: CustomLabelCard(
                   text: Text(
                     content3,
                     style: TextStyle(
