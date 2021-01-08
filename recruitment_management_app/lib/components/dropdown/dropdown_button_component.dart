@@ -17,7 +17,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 16, right: 16),
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(

@@ -34,6 +34,9 @@ class Body extends StatelessWidget {
               ),
               CardNavigator(
                 title: "Job Information",
+                  onTap: () => {
+                    Navigator.pushNamed(context, '/jobInfo')
+                  }
               ),
               CardNavigator(
                 title: "Company Info",
