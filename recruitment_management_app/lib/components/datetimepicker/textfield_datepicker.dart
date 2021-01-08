@@ -4,7 +4,13 @@ import 'package:intl/intl.dart';
 
 class CustomDatePicker extends StatefulWidget{
   final double width;
-  CustomDatePicker({this.width});
+  final double height;
+  final ColorScheme colorScheme;
+  CustomDatePicker({
+    this.width=200,
+    this.height=50,
+    this.colorScheme =const ColorScheme.light(primary: kPrimaryColor),
+  });
   @override
   _CustomDatePickerState createState() => _CustomDatePickerState();
   
@@ -23,7 +29,7 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
       builder: (BuildContext context, Widget child){
         return Theme(
           data: ThemeData(
-            colorScheme: ColorScheme.light(primary: kPrimaryColor),
+            colorScheme: widget.colorScheme,
           ),
           child: child,
         );
@@ -44,7 +50,7 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
         children: <Widget>[
           SizedBox(
             width: widget.width,
-            height: 50,
+            height: widget.height,
             child: TextFormField(
               textAlign: TextAlign.center,
               readOnly: true,
@@ -55,6 +61,7 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
               },
               decoration: InputDecoration(
                 hintStyle: TextStyle(
+                  fontSize: 14,
                   color: Colors.black,
                 ),
                 hintText: formattedDate,

@@ -4,7 +4,13 @@ import 'package:intl/intl.dart';
 
 class CustomTimePicker extends StatefulWidget{
   final double width;
-  CustomTimePicker({this.width});
+  final double height;
+  final ColorScheme colorScheme;
+  CustomTimePicker({
+    this.width=200,
+    this.height=50,
+    this.colorScheme =const ColorScheme.light(primary: kPrimaryColor),
+  });
   @override
   _CustomTimePickerState createState() => _CustomTimePickerState();
 }
@@ -17,9 +23,7 @@ class _CustomTimePickerState extends State<CustomTimePicker>{
       builder: (BuildContext context, Widget child){
         return Theme(
           data: ThemeData(
-            colorScheme: ColorScheme.light(
-              primary: kPrimaryColor,
-            ),
+            colorScheme: widget.colorScheme,
           ),
           child: child,
         );
@@ -39,7 +43,7 @@ class _CustomTimePickerState extends State<CustomTimePicker>{
         children: <Widget>[
           SizedBox(
             width: widget.width,
-            height: 50,
+            height: widget.height,
             child: TextFormField(
               textAlign: TextAlign.center,
               readOnly: true,
@@ -51,6 +55,7 @@ class _CustomTimePickerState extends State<CustomTimePicker>{
               decoration: InputDecoration(
                 hintText: timeOfDay.format(context),
                 hintStyle: TextStyle(
+                  fontSize: 14,
                   color: Colors.black,
                 ),
                 focusedBorder: OutlineInputBorder(
