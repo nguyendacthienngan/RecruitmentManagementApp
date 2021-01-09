@@ -4,10 +4,11 @@ import 'package:keyboard_visibility/keyboard_visibility.dart';
 
 class CustomCard extends StatefulWidget {
   final Widget child;
+  final double height;
   final BuildContext context;
   final bool isVisible;
   final double yOffset;
-  CustomCard({this.context, this.child, this.isVisible, this.yOffset});
+  CustomCard({this.context, this.child, this.isVisible, this.yOffset, this.height});
   @override
   _CustomCardState createState() => _CustomCardState();
 }
@@ -32,7 +33,8 @@ class _CustomCardState extends State<CustomCard> {
     final double windowHeight = MediaQuery.of(widget.context).size.height;
     double yOffsetDefault = widget.yOffset != null ? widget.yOffset : 230;
     double yOffset = _keyboardVisible ? 40 : yOffsetDefault;
-    double height = _keyboardVisible ? windowHeight :  windowHeight - yOffset;
+    double heightDefault = widget.height != null ? widget.height : windowHeight;
+    double height = _keyboardVisible ? heightDefault :  heightDefault - yOffset;
     return AnimatedContainer(
       padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
       height: height,

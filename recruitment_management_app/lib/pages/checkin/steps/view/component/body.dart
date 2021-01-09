@@ -1,8 +1,11 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:recruitment_management_app/components/camera/CameraComponent.dart';
 import 'package:recruitment_management_app/components/card/custom_card.dart';
+import 'package:recruitment_management_app/components/divider_top_card_component.dart';
+import 'package:recruitment_management_app/components/label/label_info_component.dart';
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
@@ -11,7 +14,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   List<Step> steps = [
     Step(
-      title: const Text('New Account'),
+      title: const Text('Check Profiles'),
       isActive: true,
       state: StepState.complete,
       content: CheckProfileStep()
@@ -19,7 +22,7 @@ class _BodyState extends State<Body> {
     Step(
       isActive: false,
       state: StepState.editing,
-      title: const Text('Address'),
+      title: const Text('Face Recognition'),
       content: Column(
         children: <Widget>[
           TextFormField(
@@ -33,7 +36,7 @@ class _BodyState extends State<Body> {
     ),
     Step(
       state: StepState.error,
-      title: const Text('Avatar'),
+      title: const Text('Check in'),
       subtitle: const Text("Error!"),
       content: Column(
         children: <Widget>[
@@ -89,21 +92,40 @@ class CheckProfileStep extends StatefulWidget {
 }
 
 class _CheckProfileStepState extends State<CheckProfileStep> {
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child:  Column(
-        children: [
-          CustomCard(
+
+    final double windowWidth = MediaQuery.of(context).size.width;
+
+    return SizedBox(
+      width: windowWidth,
+    child: Container(
+        child:  CustomCard(
             context: context,
             isVisible: true,
             yOffset: 0,
-            child: Container(),
-          )
-          // FittedBox(
-          //   child: CameraCheckIn(),
-          // )
-        ],
+            height: 200,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 12,
+                ),
+                DividerTopCard(),
+                SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  children: [
+                    CustomLabel(
+                      title: "Hello",
+                      content: "Hello",
+                    )
+                  ],
+                ),
+              ],
+            )
+        )
       ),
     );
   }
