@@ -6,7 +6,8 @@ class CustomCard extends StatefulWidget {
   final Widget child;
   final BuildContext context;
   final bool isVisible;
-  CustomCard({this.context, this.child, this.isVisible});
+  final double yOffset;
+  CustomCard({this.context, this.child, this.isVisible, this.yOffset});
   @override
   _CustomCardState createState() => _CustomCardState();
 }
@@ -29,7 +30,8 @@ class _CustomCardState extends State<CustomCard> {
 
   Widget build(BuildContext context) {
     final double windowHeight = MediaQuery.of(widget.context).size.height;
-    double yOffset = _keyboardVisible ? 40 : 230;
+    double yOffsetDefault = widget.yOffset != null ? widget.yOffset : 230;
+    double yOffset = _keyboardVisible ? 40 : yOffsetDefault;
     double height = _keyboardVisible ? windowHeight :  windowHeight - yOffset;
     return AnimatedContainer(
       padding: EdgeInsets.fromLTRB(32, 0, 32, 32),
