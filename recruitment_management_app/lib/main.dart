@@ -9,19 +9,13 @@ import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart'
 import 'services/auth.service.dart';
 import 'pages/login/view/login_view.dart';
 import 'pages/home/view/home_view.dart';
-import 'pages/profile/user_profile//view/profile_view.dart';
-import 'package:camera/camera.dart';
+import 'pages/profile/user_profile/view/profile_view.dart';
 
 AuthService appAuth = new AuthService();
 bool _showNavBar = true; //this is to show nav bar
 Widget screen = new LoginPage();
-List<CameraDescription> cameras;
 
-Future<Null> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  cameras = await availableCameras();
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -45,7 +39,7 @@ class MyApp extends StatelessWidget {
         '/personalInfoEdit': (BuildContext contexxt) => new PersonalInfoEdit(),
         '/jobInfo': (BuildContext contexxt) => new JobInfoPage(),
         '/companyInfo': (BuildContext contexxt) => new CompanyInfoPage(),
-        '/checkInSteps':  (BuildContext contexxt) => new CheckInStepsPage(cameras: cameras,),
+        '/checkInSteps':  (BuildContext contexxt) => new CheckInStepsPage(),
       },
     );
   }

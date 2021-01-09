@@ -58,15 +58,17 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(children: <Widget>[
-        //CameraComponent()
-        Expanded(
-          child: Stepper(
-            steps: steps,
-            type: StepperType.horizontal
-          ),
-        ),
-      ]),
+      child: FittedBox(
+        child: CameraCheckIn(),
+      )
+      // child: Column(children: <Widget>[
+      //   Expanded(
+      //     child: Stepper(
+      //       steps: steps,
+      //       type: StepperType.horizontal
+      //     ),
+      //   ),
+      // ]),
     );
   }
 }

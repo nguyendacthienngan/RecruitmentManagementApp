@@ -7,8 +7,6 @@ import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/components/custom_bottom_nav_bar.dart';
 class CheckInStepsPage extends StatefulWidget{
   static String routeName = "/checkInSteps";
-  final List<CameraDescription> cameras;
-  CheckInStepsPage ({this.cameras});
   @override
   _CheckInStepsPageState createState() => _CheckInStepsPageState();
 }
