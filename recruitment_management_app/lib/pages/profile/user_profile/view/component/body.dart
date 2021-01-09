@@ -23,7 +23,8 @@ class Body extends StatelessWidget {
                 )
               ),
               WhiteDropdownButton(
-                  hintText: "Status"
+                  hintText: "Status",
+                  listItem: ["Item 1"],
               ),
               CardNavigator(
                 title: "Personal Info",

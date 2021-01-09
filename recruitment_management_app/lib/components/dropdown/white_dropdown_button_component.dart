@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 class WhiteDropdownButton extends StatefulWidget {
   final String hintText;
-
-  WhiteDropdownButton({this.hintText});
+  final List listItem;
+  WhiteDropdownButton({this.hintText, this.listItem});
   @override
   _WhiteDropdownButtonState createState() => _WhiteDropdownButtonState();
 }
 
 class _WhiteDropdownButtonState extends State<WhiteDropdownButton> {
   String valueChoose;
-  List listItem = [
-    "item1", "item2", "item3"
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,7 +45,7 @@ class _WhiteDropdownButtonState extends State<WhiteDropdownButton> {
                 valueChoose = newValue;
               });
             },
-            items: listItem.map((valueItem) {
+            items: widget.listItem.map((valueItem) {
               return DropdownMenuItem(
                 value: valueItem,
                 child: Text(valueItem),

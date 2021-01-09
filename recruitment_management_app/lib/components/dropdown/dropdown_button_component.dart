@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 class CustomDropdownButton extends StatefulWidget {
   final String hintText;
+  final List listItem;
+  final double width;
+  final double height;
 
-  CustomDropdownButton({this.hintText});
+  CustomDropdownButton({this.hintText, this.listItem, this.width, this.height});
   @override
   _CustomDropdownButtonState createState() => _CustomDropdownButtonState();
 }
 
 class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   String valueChoose;
-  List listItem = [
-    "item1", "item2", "item3"
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 16, right: 16),
       margin: EdgeInsets.only(right: 16),
+      width: widget.width,
+      height: widget.height,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
@@ -49,7 +51,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 valueChoose = newValue;
             });
           },
-          items: listItem.map((valueItem) {
+          items: widget.listItem.map((valueItem) {
             return DropdownMenuItem(
               value: valueItem,
               child: Text(valueItem),

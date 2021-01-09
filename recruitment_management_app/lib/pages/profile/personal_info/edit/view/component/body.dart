@@ -87,6 +87,7 @@ class Body extends StatelessWidget {
                       ),
                       CustomDropdownButton(
                         hintText: "Female",
+                        listItem: ["Item 1", "Item 2"],
                       )
                     ],
                   ),
@@ -238,6 +239,7 @@ class Body extends StatelessWidget {
                       ),
                       CustomDropdownButton(
                         hintText: "Single",
+                        listItem: ["Item 1", "Item 2"],
                       )
                     ],
                   ),
