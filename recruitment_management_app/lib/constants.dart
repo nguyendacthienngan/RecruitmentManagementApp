@@ -15,3 +15,27 @@ const kThirdGradientColor = LinearGradient(
   end: Alignment.bottomCenter,
   colors: [Colors.transparent, Colors.transparent],
 );
+Map<int, Widget> segmentedcontrolChildren = {
+  0: SizedBox(
+    width: 100,
+    child: Center(
+      child: Text(
+        'MINE',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ),
+  1: SizedBox(
+    width: 100,
+    child: Center(
+      child: Text(
+        'TEAM',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ),
+};

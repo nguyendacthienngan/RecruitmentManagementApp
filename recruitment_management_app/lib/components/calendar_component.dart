@@ -4,13 +4,18 @@ import 'package:recruitment_management_app/constants.dart';
 
 class CalendarCustom extends StatelessWidget{
   final CalendarController calendarController;
-  CalendarCustom({this.calendarController});
+  final CalendarFormat initialCalendarFormat;
+  CalendarCustom({
+    this.calendarController,
+    this.initialCalendarFormat=CalendarFormat.month,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: <Widget>[
           TableCalendar(
+            initialCalendarFormat: initialCalendarFormat,
             calendarController: calendarController,
             startingDayOfWeek: StartingDayOfWeek.monday,
             calendarStyle: CalendarStyle(

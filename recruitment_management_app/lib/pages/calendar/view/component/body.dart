@@ -9,6 +9,8 @@ import 'package:recruitment_management_app/components/calendar_component.dart';
 import 'package:recruitment_management_app/components/button/primary_button_component.dart';
 import 'package:recruitment_management_app/components/segmented_control_component.dart';
 import 'package:recruitment_management_app/components/datetimepicker/textfield_datepicker.dart';
+import 'MineSubBody.dart';
+import 'TeamSubBody.dart';
 
 class Body extends StatefulWidget{
   @override
@@ -16,10 +18,13 @@ class Body extends StatefulWidget{
 }
 class _BodyState extends State<Body>{
   // ignore: must_call_super
-  CalendarController calendarController;
+
+  int _currentSelection;
+  Widget _subwidget;
   void initState(){
     super.initState();
-    calendarController = CalendarController();
+    _currentSelection=0;
+    _subwidget= MineSubBody();
   }
   @override
   Widget build(BuildContext context) {
@@ -29,20 +34,29 @@ class _BodyState extends State<Body>{
           child: Column(
             children: [
               SegmentedControl(
+                children: segmentedcontrolChildren,
+                currentSelection: _currentSelection,
+                onSegmentChosen: (index){
+                  setState(() {
+                    _currentSelection=index;
+                    if(index==0) {
+                      _subwidget= MineSubBody();
+                    }
+                    else {
+                      _subwidget= TeamSubBody();
+                    }
+                  });
+                },
               ),
-              CalendarCustom(
-                calendarController: calendarController,
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-              //  color: Colors.red,
-                width:350,
-                child: Text(
-                  'UPCOMING',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+
+              AnimatedSwitcher(
+                child: _subwidget,
+                duration: Duration(milliseconds: 400),
+                transitionBuilder: (Widget child, Animation<double> animation)=>
+                ScaleTransition(
+                  child: child,
+                  scale: animation,
+                  alignment: Alignment.topLeft,
                 ),
               ),
             ],
@@ -50,6 +64,7 @@ class _BodyState extends State<Body>{
         )
     );
   }
-
-
 }
+
+
+
