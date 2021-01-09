@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
 
 import 'package:recruitment_management_app/enums.dart';
 import './component/body.dart';

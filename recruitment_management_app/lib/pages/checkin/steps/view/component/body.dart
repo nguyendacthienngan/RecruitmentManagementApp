@@ -1,11 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
 
 import 'package:recruitment_management_app/components/camera/CameraComponent.dart';
 class Body extends StatefulWidget {
-  final List<CameraDescription> cameras;
-  Body({this.cameras});
   @override
   _BodyState createState() => _BodyState();
 }
