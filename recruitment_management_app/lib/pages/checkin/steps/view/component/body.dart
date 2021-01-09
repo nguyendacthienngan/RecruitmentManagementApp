@@ -17,13 +17,10 @@ class _BodyState extends State<Body> {
       isActive: true,
       state: StepState.complete,
       content: Column(
-        children: <Widget>[
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Email Address'),
-          ),
-          TextFormField(
-            decoration: InputDecoration(labelText: 'Password'),
-          ),
+          children: [
+            FittedBox(
+              child: CameraCheckIn(),
+            )
         ],
       ),
     ),
@@ -58,17 +55,15 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FittedBox(
-        child: CameraCheckIn(),
-      )
-      // child: Column(children: <Widget>[
-      //   Expanded(
-      //     child: Stepper(
-      //       steps: steps,
-      //       type: StepperType.horizontal
-      //     ),
-      //   ),
-      // ]),
+
+      child: Column(children: <Widget>[
+        Expanded(
+          child: Stepper(
+            steps: steps,
+            type: StepperType.horizontal
+          ),
+        ),
+      ]),
     );
   }
 }
