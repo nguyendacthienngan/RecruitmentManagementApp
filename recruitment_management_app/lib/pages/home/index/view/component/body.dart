@@ -1,10 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/main.dart';
+import 'package:intl/intl.dart';
 
 class Body extends StatelessWidget {
+  static final DateTime now = DateTime. now();
+  static final DateFormat formatter = DateFormat.yMMMMd('en_US');
+  final String dateFormatted = formatter. format(now);
+
   @override
   Widget build(BuildContext context) {
+    String greet;
+    var hour = now.hour.toString();
+    var minute = now.minute.toString();
+    var second = now.second.toString();
+    if (hour.length == 1)
+      hour = "0" + hour;
+    if (minute.length == 1)
+      minute = "0" + minute;
+    if (second.length == 1)
+      second = "0" + second;
+
+    if (now.hour >= 5 && now.hour <= 8)
+      greet = "morning";
+    else if (now.hour > 13 && now.hour <= 17)
+      greet = "afternoon";
+    else if (now.hour > 17 && now.hour <= 19)
+      greet = "evening";
+    else if (now.hour > 19 && now.hour <= 24)
+      greet = "night";
+    else
+      greet = "day";
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -13,12 +40,17 @@ class Body extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(right: 10),
-                    height: 40,
-                    child:  Image.asset("assets/images/avatar.png"),
+                  GestureDetector(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 10),
+                      height: 40,
+                      child:  Image.asset("assets/images/avatar.png"),
+                    ),
+                    onTap: () => {
+                      Navigator.pushNamed(context, '/profile')
+                    }
                   ),
-                  Text("Good afternoon, Thiên Ngân"),
+                  Text("Good " + greet + ", Thiên Ngân"),
                   Expanded(child: Container()),
                   IconButton(
                       icon: Icon(
@@ -30,8 +62,86 @@ class Body extends StatelessWidget {
                 ],
               ),
               Container(
-                  child: Image.asset("assets/images/thankyou.png",
-                    fit: BoxFit.fill,)
+                child: Text(
+                  hour + ":" + minute + ":" + second,
+                    style: new TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        foreground: Paint()..shader = linearGradient
+                    ),
+                ),
+              ),
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 16),
+                    padding: EdgeInsets.all(32),
+                    decoration: BoxDecoration(
+                      gradient: kPrimaryGradientColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Welcome abroad! It is a great honour to have you in our team",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          dateFormatted,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      height: 30,
+                        child: Image.asset("assets/images/star.png")
+                    ),
+                  )
+
+                ],
+              ),
+              Stack(
+                children: [
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      return Container(
+                        child: Image.asset("assets/images/thankyou.png",
+                        fit: BoxFit.fill,)
+                      );
+                    }
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    margin: EdgeInsets.only(top: 300),
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        Text("Dear Thiên Ngân",
+                            style: TextStyle(
+                                height: 1.5
+                            )),
+                        Text(
+                          "A warm welcome and lots of good wishes on becoming part of our growing team. "
+                          "Congratulations and on behalf of all the members, we are all happy and"
+                          " exicted about your inputs and contributions to our company",
+                          style: TextStyle(
+                              height: 1.5
+                          )
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
 
             ],

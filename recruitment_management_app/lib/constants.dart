@@ -8,6 +8,9 @@ const kPrimaryGradientColor = LinearGradient(
   end: Alignment.bottomCenter,
   colors: [Color(0xFF20CEF5), Color(0xFF3392D7)],
 );
+final Shader linearGradient = LinearGradient(
+  colors: <Color>[Color(0xFF20CEF5), Color(0xFF3392D7)],
+).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 const kSecondaryColor = Color(0xFFF9F8F6);
 const kThirdColor = Color(0xFF828281);
 const kThirdGradientColor = LinearGradient(

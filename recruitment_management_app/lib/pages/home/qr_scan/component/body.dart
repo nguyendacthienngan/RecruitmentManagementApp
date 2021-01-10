@@ -107,14 +107,17 @@ class _BodyState extends State<Body> {
               EdgeInsets.only(left: 40, right: 40, top: 30, bottom: 10),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: 190,
-                    child: bytes.isEmpty
-                        ? Center(
-                      child: Text('Empty code ... ',
-                          style: TextStyle(color: Colors.black38)),
-                    )
-                        : Image.memory(bytes),
+                  Container(
+                    padding: EdgeInsets.only(bottom: 30),
+                    child: SizedBox(
+                      height: 190,
+                      child: bytes.isEmpty
+                          ? Center(
+                        child: Text('Empty code ... ',
+                            style: TextStyle(color: Colors.black38)),
+                      )
+                          : Image.memory(bytes),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 7, left: 25, right: 25),
@@ -168,19 +171,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            Divider(height: 2, color: Colors.black26),
-            Container(
-              child: Row(
-                children: <Widget>[
-                  Icon(Icons.history, size: 16, color: Colors.black38),
-                  Text('  Generate History',
-                      style: TextStyle(fontSize: 14, color: Colors.black38)),
-                  Spacer(),
-                  Icon(Icons.chevron_right, size: 16, color: Colors.black38),
-                ],
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 9),
-            )
+
           ],
         ),
       ),
