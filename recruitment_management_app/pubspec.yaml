@@ -36,10 +36,22 @@ dependencies:
   qrscan: ^0.2.21
   image_gallery_saver: ^1.6.7
   permission_handler: ^5.0.1+1
+  flutter_launcher_icons: ^0.8.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_launcher_icons:
+  path: ../
+
+flutter_icons:
+  image_path_android: "assets/images/logo.png"
+  image_path_ios: "assets/images/logo.png"
+  android: true
+  ios: true
+  adaptive_icon_background: "assets/images/logo.png"
+  adaptive_icon_foreground: "assets/images/logo.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
