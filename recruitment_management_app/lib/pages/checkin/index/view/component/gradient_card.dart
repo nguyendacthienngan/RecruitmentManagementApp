@@ -39,31 +39,33 @@ class GradientCheckInCard extends StatelessWidget {
             ],
           ),
           SizedBox(width: 28,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Nguyen Dac Thien Ngan",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Nguyen Dac Thien Ngan",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700
+                  ),
                 ),
-              ),
-              SizedBox(height: 5,),
-              Text(
-                "Web intern",
-                style: TextStyle(
-                  color: Colors.white,
+                SizedBox(height: 5,),
+                Text(
+                  "Web intern",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              Text(
-                  "Bach Nguyen",
-                style: TextStyle(
-                  color: Colors.white,
+                Text(
+                    "Bach Nguyen",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           )
         ],
       ),

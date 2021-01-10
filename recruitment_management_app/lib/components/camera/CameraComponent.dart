@@ -10,10 +10,12 @@ class CameraCheckIn extends StatefulWidget {
 
 class _CameraCheckInState extends State<CameraCheckIn> {
   File _image;
-  final picker = ImagePicker();
+  final picker = ImagePicker(
+  );
 
   Future getImage() async {
-    var pickedFile = await picker.getImage(source: ImageSource.camera);
+    var pickedFile = await picker.getImage(source: ImageSource.camera,
+    preferredCameraDevice: CameraDevice.front, );
     setState(() {
       if (pickedFile != null) {
         _image = File(pickedFile.path);

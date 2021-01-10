@@ -15,12 +15,13 @@ class CompanyInfoPage extends StatelessWidget {
         title: Text(
           'COMPANY INFO',
           style: TextStyle(
-            color: kSecondaryColor,
+            color: kPrimaryColor,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: kPrimaryColor,
+        iconTheme: IconThemeData(color: kPrimaryColor),
+        backgroundColor: kSecondaryColor,
         elevation: 0,
       ),
       body: Body(),

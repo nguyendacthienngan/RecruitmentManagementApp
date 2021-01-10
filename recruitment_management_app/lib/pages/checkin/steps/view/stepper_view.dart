@@ -25,6 +25,9 @@ class _CheckInStepsPageState extends State<CheckInStepsPage>{
         ),
         backgroundColor: kSecondaryColor,
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: kPrimaryColor
+        ),
       ),
       body: Body(),
       bottomNavigationBar: CustomBottomNavBar(

@@ -31,6 +31,9 @@ class Body extends StatelessWidget {
                       ),
                       CustomDropdownButton(
                         hintText: "Single",
+                        width: MediaQuery.of(context).size.width,
+                        height: 50,
+                        listItem: ["Hello"],
                       )
                     ],
                   ),
@@ -52,6 +55,9 @@ class Body extends StatelessWidget {
                       ),
                       CustomDropdownButton(
                         hintText: "Single",
+                        width: MediaQuery.of(context).size.width,
+                        height: 50,
+                        listItem: ["Hello"],
                       )
                     ],
                   ),
@@ -73,6 +79,9 @@ class Body extends StatelessWidget {
                       ),
                       CustomDropdownButton(
                         hintText: "Single",
+                        width: MediaQuery.of(context).size.width,
+                        height: 50,
+                        listItem: ["Hello"],
                       )
                     ],
                   ),

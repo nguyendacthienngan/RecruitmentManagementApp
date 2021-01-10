@@ -34,10 +34,14 @@ class Body extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SmallInput(
-                      hint: "Ngan",
-                      width: 150,
-                      height: 50,
+                    LayoutBuilder(
+                        builder: (context, constraints) {
+                          return SmallInput(
+                            hint: "Nguyen Dac Thien",
+                            width: constraints.maxWidth -48,
+                            height: 50,
+                          );
+                        }
                     ),
                   ],
                 ),
@@ -57,10 +61,14 @@ class Body extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SmallInput(
-                      hint: "Nguyen Dac Thien",
-                      width: 150,
-                      height: 50,
+                    LayoutBuilder(
+                        builder: (context, constraints) {
+                          return SmallInput(
+                            hint: "Nguyen Dac Thien",
+                            width: constraints.maxWidth -48,
+                            height: 50,
+                          );
+                        }
                     ),
                   ],
                 ),
@@ -107,112 +115,14 @@ class Body extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SmallInput(
-                        hint: "Nguyen Dac Thien",
-                        width: 150,
-                        height: 50,
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 20),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                            child: CustomLabelTitle(
-                              title: "Email:",
-                            ),
-                          ),
-                        ],
-                      ),
-                      SmallInput(
-                        hint: "Ngan",
-                        width: 150,
-                        height: 50,
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                            child: CustomLabelTitle(
-                              title: "National ID:",
-                            ),
-                          ),
-                        ],
-                      ),
-                      SmallInput(
-                        hint: "Nguyen Dac Thien",
-                        width: 150,
-                        height: 50,
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(width: 20),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                            child: CustomLabelTitle(
-                              title: "Address:",
-                            ),
-                          ),
-                        ],
-                      ),
-                      SmallInput(
-                        hint: "Ngan",
-                        width: 150,
-                        height: 50,
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                            child: CustomLabelTitle(
-                              title: "Phone number:",
-                            ),
-                          ),
-                        ],
-                      ),
-                      SmallInput(
-                        hint: "Nguyen Dac Thien",
-                        width: 150,
-                        height: 50,
+                      LayoutBuilder(
+                          builder: (context, constraints) {
+                            return SmallInput(
+                              hint: "Nguyen Dac Thien",
+                              width: constraints.maxWidth -48,
+                              height: 50,
+                            );
+                          }
                       ),
                     ],
                   ),

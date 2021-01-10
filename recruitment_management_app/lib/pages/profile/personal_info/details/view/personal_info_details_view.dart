@@ -16,12 +16,13 @@ class PersonalInfoPage extends StatelessWidget {
         title: Text(
           'PERSONAL INFO',
           style: TextStyle(
-            color: kSecondaryColor,
+            color: kPrimaryColor,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: kPrimaryColor,
+        iconTheme: IconThemeData(color: kPrimaryColor),
+        backgroundColor: kSecondaryColor,
         elevation: 0,
       ),
       body: Body(),

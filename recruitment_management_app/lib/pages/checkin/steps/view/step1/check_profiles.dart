@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruitment_management_app/components/button/edit_button_component.dart';
 import 'package:recruitment_management_app/components/label/label_info_component.dart';
 
 class CheckProfileStep extends StatefulWidget {
@@ -22,6 +23,20 @@ class _CheckProfileStepState extends State<CheckProfileStep> {
             ),
             Column(
               children: [
+                Row(
+                  children: [
+                    Expanded(child: Container()),
+                    Text("PROFILES", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                    Expanded(
+                        child: EditButton(
+                          onPressed: () => {
+                            Navigator.pushNamed(context, '/editProfileStep')
+                          },
+                        )
+                    )
+                  ],
+                ),
+                SizedBox(height: 32),
                 CustomLabel(
                   title: "Hello",
                   content: "Hello",
