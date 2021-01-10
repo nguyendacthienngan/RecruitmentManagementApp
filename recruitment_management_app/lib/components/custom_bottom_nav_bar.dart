@@ -5,7 +5,7 @@ import 'package:recruitment_management_app/pages/profile/user_profile/view/profi
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import '../enums.dart';
-import '../pages/home/view/home_view.dart';
+import '../pages/home/index/view/home_view.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
 

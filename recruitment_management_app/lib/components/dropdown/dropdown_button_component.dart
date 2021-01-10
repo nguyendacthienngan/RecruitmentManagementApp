@@ -21,7 +21,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: kSecondaryColor,
         border: Border.all(
             color: kPrimaryColor,
             width: 2

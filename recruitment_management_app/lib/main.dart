@@ -3,6 +3,7 @@ import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import 'file:///D:/Project/RecruitmentManagementApp/recruitment_management_app/lib/pages/checkin/steps/view/step1_1/edit_profiles.dart';
 import 'package:recruitment_management_app/pages/checkin/steps/view/stepper_view.dart';
+import 'package:recruitment_management_app/pages/home/qr_scan/qr_scan_view.dart';
 import 'package:recruitment_management_app/pages/profile/company_info/company_info_view.dart';
 import 'package:recruitment_management_app/pages/profile/job_info/view/job_info_view.dart';
 import 'package:recruitment_management_app/pages/profile/personal_info/details/view/personal_info_details_view.dart';
@@ -11,7 +12,7 @@ import 'package:recruitment_management_app/pages/timeoff/timeoff_request/timeoff
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import 'services/auth.service.dart';
 import 'pages/login/view/login_view.dart';
-import 'pages/home/view/home_view.dart';
+import 'pages/home/index/view/home_view.dart';
 import 'pages/profile/user_profile/view/profile_view.dart';
 
 AuthService appAuth = new AuthService();
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         '/companyInfo': (BuildContext contexxt) => new CompanyInfoPage(),
         '/checkInSteps':  (BuildContext contexxt) => new CheckInStepsPage(),
         '/editProfileStep': (BuildContext contexxt) => new EditProfilesStep(),
+        '/qrScan' : (BuildContext contexxt) => new QRScanPage(),
       },
     );
   }
