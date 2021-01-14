@@ -3,18 +3,37 @@ import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/main.dart';
 import 'package:intl/intl.dart';
+import 'package:recruitment_management_app/models/album.model.dart';
+import 'package:recruitment_management_app/models/employee.model.dart';
+import 'package:flutter/foundation.dart';
 
-class Body extends StatelessWidget {
+import 'dart:convert';
+import 'dart:async';
+import 'package:recruitment_management_app/models/employee.model.dart';
+import 'package:http/http.dart' as http;
+import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/pages/home/index/presenter/controller.dart';
+class Body extends StatefulWidget {
   static final DateTime now = DateTime. now();
   static final DateFormat formatter = DateFormat.yMMMMd('en_US');
-  final String dateFormatted = formatter. format(now);
-
   @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  final String dateFormatted = Body.formatter. format(Body.now);
+  Future<Album> futureAlbum;
+  @override
+  void initState() {
+    super.initState();
+    futureAlbum = fetchAlbum();
+  }
+
   Widget build(BuildContext context) {
     String greet;
-    var hour = now.hour.toString();
-    var minute = now.minute.toString();
-    var second = now.second.toString();
+    var hour = Body.now.hour.toString();
+    var minute = Body.now.minute.toString();
+    var second = Body.now.second.toString();
     if (hour.length == 1)
       hour = "0" + hour;
     if (minute.length == 1)
@@ -22,13 +41,13 @@ class Body extends StatelessWidget {
     if (second.length == 1)
       second = "0" + second;
 
-    if (now.hour >= 5 && now.hour <= 8)
+    if (Body.now.hour >= 5 && Body.now.hour <= 8)
       greet = "morning";
-    else if (now.hour > 13 && now.hour <= 17)
+    else if (Body.now.hour > 13 && Body.now.hour <= 17)
       greet = "afternoon";
-    else if (now.hour > 17 && now.hour <= 19)
+    else if (Body.now.hour > 17 && Body.now.hour <= 19)
       greet = "evening";
-    else if (now.hour > 19 && now.hour <= 24)
+    else if (Body.now.hour > 19 && Body.now.hour <= 24)
       greet = "night";
     else
       greet = "day";
@@ -50,7 +69,18 @@ class Body extends StatelessWidget {
                       Navigator.pushNamed(context, '/profile')
                     }
                   ),
-                  Text("Good " + greet + ", Thiên Ngân"),
+                  FutureBuilder<Album>(
+                    future: futureAlbum,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text("Good " + greet + ", " + snapshot.data.first_name  );
+                      } else if (snapshot.hasError) {
+                        return Text("${snapshot.error}");
+                      }
+                      return CircularProgressIndicator();
+                    }
+                      // child: Text("Good " + greet + ", ")
+                  ),
                   Expanded(child: Container()),
                   IconButton(
                       icon: Icon(
