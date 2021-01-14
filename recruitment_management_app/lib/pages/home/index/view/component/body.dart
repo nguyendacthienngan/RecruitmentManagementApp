@@ -1,30 +1,60 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruitment_management_app/constants.dart';
-import 'package:recruitment_management_app/main.dart';
-import 'package:intl/intl.dart';
 
-class Body extends StatelessWidget {
-  static final DateTime now = DateTime. now();
+import 'package:recruitment_management_app/constants.dart';
+import 'package:intl/intl.dart';
+import 'package:recruitment_management_app/models/employee.model.dart';
+import 'package:recruitment_management_app/pages/home/index/presenter/controller.dart';
+
+class Body extends StatefulWidget {
   static final DateFormat formatter = DateFormat.yMMMMd('en_US');
-  final String dateFormatted = formatter. format(now);
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  Future<Employee> futureEmployee;
+  Timer _timer;
+  DateTime now =  DateTime.now();
+  String dateFormatted = Body.formatter.format(DateTime.now());
+  @override
+  void initState() {
+    super.initState();
+    futureEmployee = fetchEmployee();
+    _timer = Timer.periodic(
+      Duration(minutes: 1),
+          (Timer t) => setState(() {
+        now =  DateTime.now();
+        dateFormatted = Body.formatter.format(now);
+      }),
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     String greet;
     var hour = now.hour.toString();
     var minute = now.minute.toString();
-    var second = now.second.toString();
+   // var second =  now.second.toString();
+
     if (hour.length == 1)
       hour = "0" + hour;
     if (minute.length == 1)
       minute = "0" + minute;
-    if (second.length == 1)
-      second = "0" + second;
+    // if (second.length == 1)
+    //   second = "0" + second;
 
-    if (now.hour >= 5 && now.hour <= 8)
+    if (now.hour >= 1 &&  now.hour <= 13)
       greet = "morning";
-    else if (now.hour > 13 && now.hour <= 17)
+    else if ( now.hour > 13 && now.hour <= 17)
       greet = "afternoon";
     else if (now.hour > 17 && now.hour <= 19)
       greet = "evening";
@@ -50,7 +80,17 @@ class Body extends StatelessWidget {
                       Navigator.pushNamed(context, '/profile')
                     }
                   ),
-                  Text("Good " + greet + ", Thiên Ngân"),
+                  FutureBuilder<Employee>(
+                    future: futureEmployee,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text("Good " + greet + ", " + snapshot.data.first_name );
+                      } else if (snapshot.hasError) {
+                        return Text("${snapshot.error}");
+                      }
+                      return CircularProgressIndicator();
+                    }
+                  ),
                   Expanded(child: Container()),
                   IconButton(
                       icon: Icon(
@@ -63,7 +103,7 @@ class Body extends StatelessWidget {
               ),
               Container(
                 child: Text(
-                  hour + ":" + minute + ":" + second,
+                  hour + ":" + minute,
                     style: new TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
@@ -107,7 +147,6 @@ class Body extends StatelessWidget {
                         child: Image.asset("assets/images/star.png")
                     ),
                   )
-
                 ],
               ),
               Stack(
@@ -126,10 +165,21 @@ class Body extends StatelessWidget {
                     color: Colors.white,
                     child: Column(
                       children: [
-                        Text("Dear Thiên Ngân",
-                            style: TextStyle(
-                                height: 1.5
-                            )),
+                        FutureBuilder<Employee>(
+                            future: futureEmployee,
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return Text("Dear  " + snapshot.data.first_name,
+                                    style: TextStyle(
+                                        height: 1.5
+                                    )
+                                );
+                              } else if (snapshot.hasError) {
+                                return Text("${snapshot.error}");
+                              }
+                              return CircularProgressIndicator();
+                            }
+                        ),
                         Text(
                           "A warm welcome and lots of good wishes on becoming part of our growing team. "
                           "Congratulations and on behalf of all the members, we are all happy and"
