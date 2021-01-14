@@ -2,7 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/main.dart';
 import 'package:recruitment_management_app/pages//profile/user_profile/view/component/card_navigator.dart';
 import 'package:recruitment_management_app/components/dropdown/white_dropdown_button_component.dart';
-class Body extends StatelessWidget {
+
+import 'package:recruitment_management_app/models/employee.model.dart';
+import 'package:recruitment_management_app/pages/profile/user_profile/presenter/controller.dart';
+import 'package:tiengviet/tiengviet.dart';
+
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  Future<Employee> futureEmployee;
+
+  @override
+  void initState() {
+    super.initState();
+    futureEmployee = fetchEmployee();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -14,13 +31,23 @@ class Body extends StatelessWidget {
               ),
               SizedBox( height: 20,),
               Center(
-                child: Text(
-                    "NGUYEN DAC THIEN NGAN",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700
-                    ),
-                )
+                child: FutureBuilder<Employee>(
+                    future: futureEmployee,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text(
+                          TiengViet.parse(snapshot.data.last_name.toUpperCase()) + " " + TiengViet.parse(snapshot.data.first_name.toUpperCase()),
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700
+                          ),
+                        );
+                      } else if (snapshot.hasError) {
+                        return Text("${snapshot.error}");
+                      }
+                      return CircularProgressIndicator();
+                    }
+                ),
               ),
               WhiteDropdownButton(
                   hintText: "Status",

@@ -1,53 +1,64 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruitment_management_app/constants.dart';
-import 'package:recruitment_management_app/main.dart';
-import 'package:intl/intl.dart';
-import 'package:recruitment_management_app/models/album.model.dart';
-import 'package:recruitment_management_app/models/employee.model.dart';
-import 'package:flutter/foundation.dart';
 
-import 'dart:convert';
-import 'dart:async';
-import 'package:recruitment_management_app/models/employee.model.dart';
-import 'package:http/http.dart' as http;
 import 'package:recruitment_management_app/constants.dart';
+import 'package:intl/intl.dart';
+import 'package:recruitment_management_app/models/employee.model.dart';
 import 'package:recruitment_management_app/pages/home/index/presenter/controller.dart';
+
 class Body extends StatefulWidget {
-  static final DateTime now = DateTime. now();
   static final DateFormat formatter = DateFormat.yMMMMd('en_US');
   @override
   _BodyState createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-  final String dateFormatted = Body.formatter. format(Body.now);
-  Future<Album> futureAlbum;
+  Future<Employee> futureEmployee;
+  Timer _timer;
+  DateTime now =  DateTime.now();
+  String dateFormatted = Body.formatter.format(DateTime.now());
   @override
   void initState() {
     super.initState();
-    futureAlbum = fetchAlbum();
+    futureEmployee = fetchEmployee();
+    _timer = Timer.periodic(
+      Duration(minutes: 1),
+          (Timer t) => setState(() {
+        now =  DateTime.now();
+        dateFormatted = Body.formatter.format(now);
+      }),
+    );
   }
 
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     String greet;
-    var hour = Body.now.hour.toString();
-    var minute = Body.now.minute.toString();
-    var second = Body.now.second.toString();
+    var hour = now.hour.toString();
+    var minute = now.minute.toString();
+   // var second =  now.second.toString();
+
     if (hour.length == 1)
       hour = "0" + hour;
     if (minute.length == 1)
       minute = "0" + minute;
-    if (second.length == 1)
-      second = "0" + second;
+    // if (second.length == 1)
+    //   second = "0" + second;
 
-    if (Body.now.hour >= 5 && Body.now.hour <= 8)
+    if (now.hour >= 1 &&  now.hour <= 13)
       greet = "morning";
-    else if (Body.now.hour > 13 && Body.now.hour <= 17)
+    else if ( now.hour > 13 && now.hour <= 17)
       greet = "afternoon";
-    else if (Body.now.hour > 17 && Body.now.hour <= 19)
+    else if (now.hour > 17 && now.hour <= 19)
       greet = "evening";
-    else if (Body.now.hour > 19 && Body.now.hour <= 24)
+    else if (now.hour > 19 && now.hour <= 24)
       greet = "night";
     else
       greet = "day";
@@ -69,17 +80,16 @@ class _BodyState extends State<Body> {
                       Navigator.pushNamed(context, '/profile')
                     }
                   ),
-                  FutureBuilder<Album>(
-                    future: futureAlbum,
+                  FutureBuilder<Employee>(
+                    future: futureEmployee,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        return Text("Good " + greet + ", " + snapshot.data.first_name  );
+                        return Text("Good " + greet + ", " + snapshot.data.first_name );
                       } else if (snapshot.hasError) {
                         return Text("${snapshot.error}");
                       }
                       return CircularProgressIndicator();
                     }
-                      // child: Text("Good " + greet + ", ")
                   ),
                   Expanded(child: Container()),
                   IconButton(
@@ -93,7 +103,7 @@ class _BodyState extends State<Body> {
               ),
               Container(
                 child: Text(
-                  hour + ":" + minute + ":" + second,
+                  hour + ":" + minute,
                     style: new TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
@@ -137,7 +147,6 @@ class _BodyState extends State<Body> {
                         child: Image.asset("assets/images/star.png")
                     ),
                   )
-
                 ],
               ),
               Stack(
@@ -156,10 +165,21 @@ class _BodyState extends State<Body> {
                     color: Colors.white,
                     child: Column(
                       children: [
-                        Text("Dear Thiên Ngân",
-                            style: TextStyle(
-                                height: 1.5
-                            )),
+                        FutureBuilder<Employee>(
+                            future: futureEmployee,
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return Text("Dear  " + snapshot.data.first_name,
+                                    style: TextStyle(
+                                        height: 1.5
+                                    )
+                                );
+                              } else if (snapshot.hasError) {
+                                return Text("${snapshot.error}");
+                              }
+                              return CircularProgressIndicator();
+                            }
+                        ),
                         Text(
                           "A warm welcome and lots of good wishes on becoming part of our growing team. "
                           "Congratulations and on behalf of all the members, we are all happy and"
