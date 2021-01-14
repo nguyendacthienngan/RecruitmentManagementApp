@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+const root = "http://localhost:8080/v1/";
 const kPrimaryColor = Color(0xFF222B45);
 const kPrimaryLightColor = Color(0xFF20CEF5);
 const kPrimaryGradientColor = LinearGradient(
