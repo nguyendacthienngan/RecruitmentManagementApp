@@ -9,7 +9,7 @@ import 'package:recruitment_management_app/pages/profile/company_info/company_in
 import 'package:recruitment_management_app/pages/profile/job_info/view/job_info_view.dart';
 import 'package:recruitment_management_app/pages/profile/personal_info/details/view/personal_info_details_view.dart';
 import 'package:recruitment_management_app/pages/profile/personal_info/edit/view/personal_info_edit_view.dart';
-import 'file:///E:/hoc/HK1-2020-2021/OOAD-Mobile/RecruitmentManagementApp/recruitment_management_app/lib/pages/timeoff/timeoff_request/view/timeoff_request_view.dart';
+import 'package:recruitment_management_app/pages/timeoff/timeoff_request/view/timeoff_request_view.dart';
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import 'services/auth.service.dart';
 import 'pages/login/view/login_view.dart';
