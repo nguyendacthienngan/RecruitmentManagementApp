@@ -59,11 +59,11 @@ class _CustomTimePickerState extends State<CustomTimePicker>{
                   color: Colors.black,
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: kPrimaryColor, width: 3.0),
+                  borderSide: BorderSide(color: kPrimaryColor, width: 2.0),
                   borderRadius: BorderRadius.circular(25),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: kPrimaryColor, width: 3.0),
+                  borderSide: BorderSide(color: kPrimaryColor, width: 2.0),
                   borderRadius: BorderRadius.circular(25),
                 ),
               ),

@@ -25,35 +25,38 @@ class _BodyState extends State<Body>{
   @override
   Widget build(BuildContext context) {
     return Container(
-          child: Column(
-            children: [
-              SegmentedControl(
-                children: segmentedcontrolChildren,
-                currentSelection: _currentSelection,
-                onSegmentChosen: (index){
-                  setState(() {
-                    _currentSelection=index;
-                    if(index==0) {
-                      _subWidget= MineSubBody();
-                    }
-                    else {
-                      _subWidget= TeamSubBody();
-                    }
-                  });
-                },
-              ),
-              AnimatedSwitcher(
-                child: _subWidget,
-                duration: Duration(milliseconds: 500),
-                transitionBuilder: (Widget child, Animation<double> animation)=>
-                    ScaleTransition(
-                      child: child,
-                      scale: animation,
-                      alignment: Alignment.topCenter,
-                    ),
-              ),
-            ],
+          child: SingleChildScrollView(
+            child:  Column(
+              children: [
+                SegmentedControl(
+                  children: segmentedcontrolChildren,
+                  currentSelection: _currentSelection,
+                  onSegmentChosen: (index){
+                    setState(() {
+                      _currentSelection=index;
+                      if(index==0) {
+                        _subWidget= MineSubBody();
+                      }
+                      else {
+                        _subWidget= TeamSubBody();
+                      }
+                    });
+                  },
+                ),
+                AnimatedSwitcher(
+                  child: _subWidget,
+                  duration: Duration(milliseconds: 500),
+                  transitionBuilder: (Widget child, Animation<double> animation)=>
+                      ScaleTransition(
+                        child: child,
+                        scale: animation,
+                        alignment: Alignment.topCenter,
+                      ),
+                ),
+              ],
+            ),
           ),
+
     );
   }
 

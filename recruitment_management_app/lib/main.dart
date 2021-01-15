@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
-import 'file:///D:/Project/RecruitmentManagementApp/recruitment_management_app/lib/pages/checkin/steps/view/step1_1/edit_profiles.dart';
+import 'package:recruitment_management_app/pages/checkin/steps/view/step1_1/edit_profiles.dart';
 import 'package:recruitment_management_app/pages/checkin/steps/view/stepper_view.dart';
 import 'package:recruitment_management_app/pages/home/qr_scan/qr_scan_view.dart';
 import 'package:recruitment_management_app/pages/profile/company_info/company_info_view.dart';
