@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/pages/calendar/calendar_request/view/calendar_request_view.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import 'package:recruitment_management_app/pages/checkin/steps/view/step1_1/edit_profiles.dart';
 import 'package:recruitment_management_app/pages/checkin/steps/view/stepper_view.dart';
@@ -8,7 +9,7 @@ import 'package:recruitment_management_app/pages/profile/company_info/company_in
 import 'package:recruitment_management_app/pages/profile/job_info/view/job_info_view.dart';
 import 'package:recruitment_management_app/pages/profile/personal_info/details/view/personal_info_details_view.dart';
 import 'package:recruitment_management_app/pages/profile/personal_info/edit/view/personal_info_edit_view.dart';
-import 'package:recruitment_management_app/pages/timeoff/timeoff_request/timeoff_request_view.dart';
+import 'file:///E:/hoc/HK1-2020-2021/OOAD-Mobile/RecruitmentManagementApp/recruitment_management_app/lib/pages/timeoff/timeoff_request/view/timeoff_request_view.dart';
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import 'services/auth.service.dart';
 import 'pages/login/view/login_view.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         '/login': (BuildContext context) => new LoginPage(),
         '/profile': (BuildContext context) => new ProfilePage(),
         '/calendar': (BuildContext context) => new CalendarPage(),
+        '/calendar/request': (BuildContext context) => new CalendarRequest(),
         '/timeoff': (BuildContext context) => new TimeOffPage(),
         '/timeoff/request': (BuildContext context) => new TimeOffRequest(),
         '/personalInfo': (BuildContext contexxt) => new PersonalInfoPage(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruitment_management_app/pages/calendar/view/component/team_event_label.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:recruitment_management_app/components/calendar_component.dart';
 class TeamSubBody extends StatefulWidget{
@@ -32,6 +33,7 @@ class _TeamSubBodyState extends State<TeamSubBody> {
               ),
             ),
           ),
+          TeamEventLabel(),
         ],
       ),
     );

@@ -45,12 +45,14 @@ class _BodyState extends State<Body>{
                 ),
                 AnimatedSwitcher(
                   child: _subWidget,
-                  duration: Duration(milliseconds: 500),
+                  duration: Duration(milliseconds:500),
+                  switchInCurve: Curves.easeInBack,
+                  switchOutCurve: Curves.easeInBack,
                   transitionBuilder: (Widget child, Animation<double> animation)=>
                       ScaleTransition(
                         child: child,
                         scale: animation,
-                        alignment: Alignment.topCenter,
+                        alignment: Alignment.centerLeft,
                       ),
                 ),
               ],
