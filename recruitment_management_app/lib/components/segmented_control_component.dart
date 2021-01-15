@@ -5,7 +5,6 @@ import 'package:recruitment_management_app/constants.dart';
 // ignore: must_be_immutable
 class SegmentedControl extends StatefulWidget
 {
-
   final ValueChanged<int> onSegmentChosen;
   final int currentSelection;
   final Map<int, Widget> children;
@@ -31,6 +30,7 @@ class _SegmentedControlState extends State<SegmentedControl>{
         borderRadius: 15.0,
         verticalOffset: 10.0,
         onSegmentChosen: widget.onSegmentChosen,
+        disabledColor: kPrimaryColor,
       ),
     );
   }

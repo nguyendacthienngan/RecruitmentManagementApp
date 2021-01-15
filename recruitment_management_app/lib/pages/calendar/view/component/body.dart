@@ -21,6 +21,7 @@ class _BodyState extends State<Body>{
 
   int _currentSelection;
   Widget _subwidget;
+
   void initState(){
     super.initState();
     _currentSelection=0;
@@ -48,16 +49,17 @@ class _BodyState extends State<Body>{
                   });
                 },
               ),
-
               AnimatedSwitcher(
                 child: _subwidget,
-                duration: Duration(milliseconds: 400),
+                duration: Duration(milliseconds:500),
+                switchInCurve: Curves.easeInBack,
+                switchOutCurve: Curves.easeInBack,
                 transitionBuilder: (Widget child, Animation<double> animation)=>
-                ScaleTransition(
-                  child: child,
-                  scale: animation,
-                  alignment: Alignment.topLeft,
-                ),
+                    ScaleTransition(
+                      child: child,
+                      scale: animation,
+                      alignment: Alignment.centerLeft,
+                    ),
               ),
             ],
           ),

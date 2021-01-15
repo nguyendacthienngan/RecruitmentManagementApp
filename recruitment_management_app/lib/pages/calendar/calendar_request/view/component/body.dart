@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recruitment_management_app/main.dart';
-import 'package:recruitment_management_app/constants.dart';
-import 'package:recruitment_management_app/pages/timeoff/timeoff_request/view/component/request_label_with_button.dart';
+import 'package:recruitment_management_app/pages/calendar/calendar_request/view/component/event_label_with_button.dart';
 
 
 class Body extends StatefulWidget{
@@ -24,7 +22,7 @@ class _BodyState extends State<Body>{
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RequestLabel(),
+            EventLabel(),
           ],
         ),
       ),

@@ -64,11 +64,10 @@ class _MineSubBodyState extends State<MineSubBody> {
                 ),
                 Container(
                   width: windowWidth,
-                  color: Colors.grey,
                   child: Column(
                     children:[
                       Container(
-                        width: windowWidth*3/4,
+                        width: windowWidth*5/6,
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'MY REQUEST',

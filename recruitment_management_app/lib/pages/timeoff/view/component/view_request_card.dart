@@ -4,10 +4,6 @@ import 'package:recruitment_management_app/components/button/primary_button_comp
 import 'package:recruitment_management_app/components/card/custom_card.dart';
 import 'package:recruitment_management_app/components/divider_top_card_component.dart';
 import 'package:recruitment_management_app/components/label/label_title_component.dart';
-import 'package:recruitment_management_app/components/input/small_input_component.dart';
-import 'package:recruitment_management_app/components/datetimepicker/textfield_datepicker.dart';
-import 'package:recruitment_management_app/components/button/gradient_button_component.dart';
-import 'package:recruitment_management_app/components/dropdown/dropdown_button_component.dart';
 
 // ignore: must_be_immutable
 class ViewRequestCard extends StatefulWidget{
@@ -19,6 +15,7 @@ class ViewRequestCard extends StatefulWidget{
 class _ViewRequestCardState extends State<ViewRequestCard>{
   double windowWidth = 0;
   double windowHeight = 0;
+  double _yOffset=100;
   @override
   Widget build(BuildContext context) {
     windowWidth = MediaQuery
@@ -30,8 +27,8 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
         .size
         .height;
     return CustomCard(
-      height: 600,
-      yOffset: 100,
+      height: windowHeight*2/3+_yOffset,
+      yOffset: _yOffset,
       isVisible: widget.cardVisible,
       context: context,
       child: Container(
@@ -49,7 +46,7 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 16,
+                          height: 40,
                         ),
                         Row(
                           children: [
@@ -72,8 +69,11 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                   ),
                                   LayoutBuilder(
                                       builder: (context, constraints) {
-                                        return CustomDatePicker(
+                                        return SizedBox(
                                           width: constraints.maxWidth-10,
+                                          child: Text(
+                                            'date',
+                                          ),
                                         );
                                       }
                                   ),
@@ -97,8 +97,11 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                   ),
                                   LayoutBuilder(
                                       builder: (context, constraints) {
-                                        return CustomDatePicker(
+                                        return SizedBox(
                                           width: constraints.maxWidth-10,
+                                          child: Text(
+                                            'date',
+                                          ),
                                         );
                                       }
                                   ),
@@ -107,6 +110,9 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                             )
                           ],
                         ), //FROM DATE TO DATE
+                        SizedBox(
+                          height: 16,
+                        ),
                         Row(
                           children: [
                             SizedBox(width: 20),
@@ -121,17 +127,18 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                       Container(
                                         margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                                         child: CustomLabelTitle(
-                                          title: "From:",
+                                          title: "Leave Type",
                                         ),
                                       ),
                                     ],
                                   ),
                                   LayoutBuilder(
                                       builder: (context, constraints) {
-                                        return CustomDropdownButton(
-                                          width: constraints.maxWidth/2,
-                                          hintText: "Sick Leave",
-                                          listItem: ["Sick Leave", "Casual Leave"],
+                                        return SizedBox(
+                                          width: constraints.maxWidth,
+                                          child: Text(
+                                            'Sick leave',
+                                          ),
                                         );
                                       }
                                   ),
@@ -140,6 +147,9 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                             ),
                           ],
                         ), //LEAVE TYPE
+                        SizedBox(
+                          height: 16,
+                        ),
                         Row(
                           children: [
                             SizedBox(width: 20),
@@ -161,10 +171,11 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                   ),
                                   LayoutBuilder(
                                       builder: (context, constraints) {
-                                        return SmallInput(
-                                          hint: "X days",
-                                          width: constraints.maxWidth/2,
-                                          height: 50,
+                                        return SizedBox(
+                                          width: constraints.maxWidth,
+                                          child: Text(
+                                            'X days',
+                                          ),
                                         );
                                       }
                                   ),
@@ -189,7 +200,7 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 30,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -208,11 +219,23 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                 ),
                 Container(
                   width: windowWidth,
-                  height: 30,
                   alignment: Alignment.center,
-                  child: DividerTopCard(),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 16,
+                      ),
+                      DividerTopCard(),
+                      Text(
+                        'MY REQUEST TIME OFF',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-
               ],
             );
           },

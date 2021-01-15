@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruitment_management_app/pages/timeoff/view/component/team_request_label.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:recruitment_management_app/components/calendar_component.dart';
 
@@ -33,6 +34,7 @@ class _TeamSubBodyState extends State<TeamSubBody> {
               ),
             ),
           ),
+          TeamRequestLabel(),
         ],
       ),
     );
