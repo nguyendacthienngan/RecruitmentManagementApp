@@ -94,7 +94,8 @@ class _BodyState extends State<Body> {
                   Expanded(child: Container()),
                   IconButton(
                       icon: Icon(
-                          Icons.qr_code_scanner_sharp
+                          //Icons.qr_code_scanner_sharp
+                        Icons.favorite,
                       ),
                       onPressed: () {
                         Navigator.pushNamed(context, '/qrScan');

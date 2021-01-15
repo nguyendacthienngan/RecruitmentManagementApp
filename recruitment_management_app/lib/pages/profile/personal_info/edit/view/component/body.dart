@@ -37,7 +37,7 @@ class Body extends StatelessWidget {
                     LayoutBuilder(
                         builder: (context, constraints) {
                           return SmallInput(
-                            hint: "Nguyen Dac Thien",
+                            hint: "Ngan",
                             width: constraints.maxWidth -48,
                             height: 50,
                           );
