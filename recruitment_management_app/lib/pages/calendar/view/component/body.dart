@@ -55,9 +55,10 @@ class _BodyState extends State<Body>{
                 switchInCurve: Curves.easeInBack,
                 switchOutCurve: Curves.easeInBack,
                 transitionBuilder: (Widget child, Animation<double> animation)=>
-                    SizeTransition(
+                    ScaleTransition(
                       child: child,
-                      sizeFactor: animation,
+                      scale: animation,
+                      alignment: Alignment.centerLeft,
                     ),
               ),
             ],
