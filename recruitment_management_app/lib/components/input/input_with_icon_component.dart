@@ -1,10 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 class InputWithIcon extends StatefulWidget {
 
   final IconData icon;
   final String hint;
-  InputWithIcon({this.icon, this.hint});
+  final TextEditingController controller;
+  InputWithIcon({this.icon, this.hint, this.controller});
 
   @override
   _InputWithIconState createState() => _InputWithIconState();
@@ -16,7 +19,6 @@ class _InputWithIconState extends State<InputWithIcon> {
     return Container(
       padding: EdgeInsets.only(left: 16, right: 16),
       decoration: BoxDecoration(
-        //color: kPrimaryColor,
           border: Border.all(
               color: kPrimaryColor,
               width: 2
@@ -35,6 +37,7 @@ class _InputWithIconState extends State<InputWithIcon> {
           ),
           Expanded(
             child: TextField(
+                controller: widget.controller,
               style: TextStyle(color: kPrimaryColor),
               decoration: InputDecoration(
                 hintStyle: TextStyle(color: kPrimaryColor),

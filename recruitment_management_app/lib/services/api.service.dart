@@ -51,8 +51,7 @@ Future<Employee> updateEmployee(String title) async {
   }
 }
 
-Future<Employee> sendEmployee(
-    String title, int id, String imageUrl, int quantity) async {
+Future<Employee> sendEmployee(String title, int id, String imageUrl, int quantity) async {
   final http.Response response = await http.post(
     'url',
     headers: <String, String>{
@@ -71,6 +70,8 @@ Future<Employee> sendEmployee(
     throw Exception('Failed to load album');
   }
 }
+
+
 Future<Employee> deleteEmployee(int id) async {
   final http.Response response = await http.delete(
     'url/$id',

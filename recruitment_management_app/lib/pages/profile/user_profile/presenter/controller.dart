@@ -18,3 +18,17 @@ Future<Employee> fetchEmployee() async {
     throw Exception('Failed to load employee');
   }
 }
+
+Future<List<Employee>> fetchEmployees() async {
+  final response = await http.get(url);
+  if (response.statusCode == 200) {
+    return decodeEmployee(response.body);
+  } else {
+    throw Exception('Unable to fetch data from the REST API');
+  }
+}
+
+List<Employee> decodeEmployee(String responseBody) {
+  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+  return parsed.map<Employee>((json) => Employee.fromMap(json)).toList();
+}

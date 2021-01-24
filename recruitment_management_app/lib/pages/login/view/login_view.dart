@@ -22,21 +22,32 @@ class _LoginPageState extends State<LoginPage> {
   double windowWidth = 0;
   double windowHeight = 0;
 
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   void initState(){
     super.initState();
+  }
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    passwordController.dispose();
+    usernameController.dispose();
+    super.dispose();
   }
 
   authenticateCheck()
   {
     setState(() {
-      appAuth.login().then((result) {
-        Navigator.of(context).pushReplacementNamed('/home');
-      });
+      if (usernameController.text != null && passwordController.text != null)
+        appAuth.login(usernameController.text, passwordController.text).then((result) {
+          if (result == true)
+           Navigator.of(context).pushReplacementNamed('/home');
+        });
     });
   }
 
-
+  @override
   Widget build(BuildContext context) {
 
     windowWidth = MediaQuery.of(context).size.width;
@@ -171,12 +182,15 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         InputWithIcon(
                             icon: Icons.email,
-                            hint: "Enter email..."
+                            hint: "Enter email...",
+                            controller: usernameController,
                         ),
                         SizedBox(height: 30),
                         InputWithIcon(
                             icon: Icons.vpn_key,
-                            hint: "Enter password..."
+                            hint: "Enter password...",
+                            controller: passwordController,
+
                         ),
                         SizedBox(height: 50),
 

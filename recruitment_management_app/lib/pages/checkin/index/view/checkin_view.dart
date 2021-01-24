@@ -4,6 +4,7 @@ import 'package:recruitment_management_app/main.dart';
 import 'package:recruitment_management_app/enums.dart';
 import './component/body.dart';
 import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/globals.dart' as globals;
 class CheckInPage extends StatelessWidget {
   static String routeName = "/checkin";
   @override
