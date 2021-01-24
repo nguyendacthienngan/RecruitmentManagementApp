@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/components/button/gradient_button_component.dart';
 import 'package:recruitment_management_app/components/button/primary_button_component.dart';
+import 'package:recruitment_management_app/components/datetimepicker/textfield_datepicker.dart';
 import 'package:recruitment_management_app/components/dropdown/dropdown_button_component.dart';
 import 'package:recruitment_management_app/components/input/small_input_component.dart';
 import 'package:recruitment_management_app/components/label/label_title_component.dart';
@@ -18,6 +19,8 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   Future<Employee> futureEmployee;
+  List<String> gender = ["Female", "Male"];
+  List<String> marital = ["Single", "Married"];
   @override
   void initState() {
     super.initState();
@@ -107,14 +110,73 @@ class _BodyState extends State<Body> {
                                 Container(
                                   margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                                   child: CustomLabelTitle(
+                                    title: "Email:",
+                                  ),
+                                ),
+                              ],
+                            ),
+                            LayoutBuilder(
+                                builder: (context, constraints) {
+                                  return SmallInput(
+                                    hint: snapshot.data.email,
+                                    width: constraints.maxWidth -48,
+                                    height: 50,
+                                  );
+                                }
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                  child: CustomLabelTitle(
+                                    title: "Address",
+                                  ),
+                                ),
+                              ],
+                            ),
+                            LayoutBuilder(
+                                builder: (context, constraints) {
+                                  return SmallInput(
+                                    hint: TiengViet.parse(snapshot.data.address),
+                                    width: constraints.maxWidth -48,
+                                    height: 50,
+                                  );
+                                }
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(width: 20),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                  child: CustomLabelTitle(
                                     title: "Gender:",
                                   ),
                                 ),
                               ],
                             ),
                             CustomDropdownButton(
-                              hintText: "Female",
-                              listItem: ["Item 1", "Item 2"],
+                              hintText: snapshot.data.gender == 0 ? "Female" : "Male",
+                              listItem: gender,
                             )
                           ],
                         ),
@@ -136,10 +198,8 @@ class _BodyState extends State<Body> {
                             ),
                             LayoutBuilder(
                                 builder: (context, constraints) {
-                                  return SmallInput(
-                                    hint: "Nguyen Dac Thien",
-                                    width: constraints.maxWidth -48,
-                                    height: 50,
+                                  return CustomDatePicker(
+                                    width: constraints.maxWidth-20,
                                   );
                                 }
                             ),
@@ -167,8 +227,8 @@ class _BodyState extends State<Body> {
                               ],
                             ),
                             CustomDropdownButton(
-                              hintText: "Single",
-                              listItem: ["Item 1", "Item 2"],
+                              hintText: snapshot.data.marital_status == 0 ? "Single" : "Married",
+                              listItem: marital,
                             )
                           ],
                         ),

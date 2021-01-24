@@ -2,9 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/components/button/edit_button_component.dart';
 import 'package:recruitment_management_app/components/label/label_info_component.dart';
+import 'package:recruitment_management_app/models/contact.model.dart';
 import 'package:recruitment_management_app/models/employee.model.dart';
-import 'package:recruitment_management_app/pages/profile/personal_info/details/presenter/controller.dart';
+import 'package:recruitment_management_app/presenter/contact.presenter.dart';
+import 'package:recruitment_management_app/presenter/employee.presenter.dart';
+import 'package:recruitment_management_app/utils.dart';
 import 'package:tiengviet/tiengviet.dart';
+import 'package:recruitment_management_app/globals.dart' as globals;
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
@@ -15,7 +19,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    futureEmployee = fetchEmployee();
+    futureEmployee = fetchEmployee(globals.employeeID);
   }
 
   @override
@@ -59,31 +63,27 @@ class _BodyState extends State<Body> {
                         ),
                         CustomLabel(
                           title: "Gender",
-                          content: "Female",
+                          content: snapshot.data.birth_date != null ? (snapshot.data.gender == 0 ? "Female" : "Male") : "Male",
                         ),
                         CustomLabel(
                           title: "D.O.B:",
-                          content: "15/05/2000",
+                          content: snapshot.data.birth_date != null ? convertDateFromString(snapshot.data.birth_date) :"1/1/1999",
                         ),
                         CustomLabel(
                           title: "Email",
-                          content: "nguyendacthienngan@gmail.com",
+                          content: snapshot.data.email,
                         ),
                         CustomLabel(
                           title: "National ID:",
-                          content: "0123333333333",
+                          content: snapshot.data.national_id,
                         ),
                         CustomLabel(
                           title: "Address",
-                          content: "239/22 Nguyen Van Cong P3 Q.Go Vap",
-                        ),
-                        CustomLabel(
-                          title: "Phone number",
-                          content: "0123333333333",
+                          content: TiengViet.parse(snapshot.data.address),
                         ),
                         CustomLabel(
                           title: "Marital status",
-                          content: "Single",
+                          content: snapshot.data.marital_status == 0 ? "Single" : "Married",
                         ),
                       ],
                     ),
