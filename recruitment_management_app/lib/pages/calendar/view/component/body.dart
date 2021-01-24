@@ -34,6 +34,9 @@ class _BodyState extends State<Body>{
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 5,
+              ),
               SegmentedControl(
                 children: segmentedcontrolChildren,
                 currentSelection: _currentSelection,

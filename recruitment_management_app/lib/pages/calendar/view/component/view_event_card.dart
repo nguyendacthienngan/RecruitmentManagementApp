@@ -23,7 +23,7 @@ class ViewEventCard extends StatefulWidget{
 class _ViewEventCardState extends State<ViewEventCard>{
   double windowWidth = 0;
   double windowHeight = 0;
-  double _yOffset=100;
+  double _yOffset=20;
   @override
   Widget build(BuildContext context) {
     windowWidth = MediaQuery
@@ -35,7 +35,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
         .size
         .height;
     return CustomCard(
-      height: windowHeight *2/3 + _yOffset,
+      height: windowHeight * 3 / 4,
       yOffset: _yOffset,
       isVisible: widget.cardVisible,
       context: context,
@@ -54,7 +54,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 40,
+                          height: 70,
                         ),
                         Row(
                           children: [
@@ -79,7 +79,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                   LayoutBuilder(
                                       builder: (context, constraints) {
                                         return SizedBox(
-                                          width: constraints.maxWidth-48,
+                                          width: constraints.maxWidth - 48,
                                           child: Text(
                                             'Event Title',
                                           ),
@@ -106,7 +106,8 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        margin: EdgeInsets.fromLTRB(
+                                            0, 10, 0, 10),
                                         child: CustomLabelTitle(
                                           title: "Event Type:",
                                         ),
@@ -116,7 +117,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                   LayoutBuilder(
                                       builder: (context, constraints) {
                                         return SizedBox(
-                                          width: constraints.maxWidth-48,
+                                          width: constraints.maxWidth - 48,
                                           child: Text(
                                             'Meeting',
                                           ),
@@ -135,7 +136,8 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        margin: EdgeInsets.fromLTRB(
+                                            0, 10, 0, 10),
                                         child: CustomLabelTitle(
                                           title: "Location:",
                                         ),
@@ -145,7 +147,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                   LayoutBuilder(
                                       builder: (context, constraints) {
                                         return SizedBox(
-                                          width: constraints.maxWidth-48,
+                                          width: constraints.maxWidth - 48,
                                           child: Text(
                                             'Location',
                                           ),
@@ -156,7 +158,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
                               ),
                             )
                           ],
-                        ),//EVENT YPE, LOCATION
+                        ), //EVENT YPE, LOCATION
                         SizedBox(
                           height: 16,
                         ),
@@ -172,7 +174,8 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        margin: EdgeInsets.fromLTRB(
+                                            0, 10, 0, 10),
                                         child: CustomLabelTitle(
                                           title: "Date:",
                                         ),
@@ -182,7 +185,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                   LayoutBuilder(
                                       builder: (context, constraints) {
                                         return SizedBox(
-                                          width: constraints.maxWidth-48,
+                                          width: constraints.maxWidth - 48,
                                           child: Text(
                                             'Date',
                                           ),
@@ -201,7 +204,8 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                                        margin: EdgeInsets.fromLTRB(
+                                            0, 10, 0, 10),
                                         child: CustomLabelTitle(
                                           title: "Time",
                                         ),
@@ -211,7 +215,7 @@ class _ViewEventCardState extends State<ViewEventCard>{
                                   LayoutBuilder(
                                       builder: (context, constraints) {
                                         return SizedBox(
-                                          width: constraints.maxWidth-48,
+                                          width: constraints.maxWidth - 48,
                                           child: Text(
                                             'Time',
                                           ),
@@ -223,14 +227,155 @@ class _ViewEventCardState extends State<ViewEventCard>{
                             )
                           ],
                         ),
+                        Row(
+                          children: [
+                            SizedBox(width: 20),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.fromLTRB(
+                                            0, 10, 0, 10),
+                                        child: CustomLabelTitle(
+                                          title: "Participants",
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  LayoutBuilder(
+                                      builder: (context, constraints) {
+                                        return Container(
+                                          width: constraints.maxWidth,
+                                          child: Wrap(
+                                            children: [
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Dung CT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Bach NL',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      }
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
                         GestureDetector(
                           onTap: () {
                             setState(() {
                               widget.cardVisible = false;
-                              print('Save');
+                              print('Cancel request');
                             });
                           },
                           child: PrimaryButton(
@@ -252,12 +397,17 @@ class _ViewEventCardState extends State<ViewEventCard>{
                             'Back',
                           ),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
                       ],
                     ),
                   ),
                 ),
                 Container(
                   width: windowWidth,
+                  height: 80,
+                  color: Colors.white,
                   alignment: Alignment.center,
                   child: Column(
                     children: [
@@ -265,6 +415,9 @@ class _ViewEventCardState extends State<ViewEventCard>{
                         height: 16,
                       ),
                       DividerTopCard(),
+                      SizedBox(
+                        height: 16,
+                      ),
                       Text(
                         'MY EVENT',
                         style: TextStyle(

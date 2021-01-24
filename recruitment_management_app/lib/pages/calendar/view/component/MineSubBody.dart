@@ -59,6 +59,9 @@ class _MineSubBodyState extends State<MineSubBody> {
                     width: 200,
                   ),
                 ),
+                SizedBox(
+                  height: 16,
+                ),
                 Container(
                   width: windowWidth,
                   child: Column(

@@ -24,9 +24,9 @@ class _SegmentedControlState extends State<SegmentedControl>{
       child: MaterialSegmentedControl(
         children: widget.children,
         selectionIndex: widget.currentSelection,
-        borderColor: kPrimaryColor,
-        selectedColor: Colors.white,
-        unselectedColor: kPrimaryColor,
+        borderColor: kPrimaryLightColor,
+        selectedColor: kPrimaryLightColor,
+        unselectedColor: Colors.white,
         borderRadius: 15.0,
         verticalOffset: 10.0,
         onSegmentChosen: widget.onSegmentChosen,

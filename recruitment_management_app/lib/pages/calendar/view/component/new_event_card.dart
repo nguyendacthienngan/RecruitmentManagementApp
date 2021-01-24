@@ -22,7 +22,7 @@ class NewEventCard extends StatefulWidget{
 class _NewEventCardState extends State<NewEventCard>{
   double windowWidth = 0;
   double windowHeight = 0;
-  double _yOffset=70;
+  double _yOffset=20;
   @override
   Widget build(BuildContext context) {
     windowWidth = MediaQuery
@@ -34,7 +34,7 @@ class _NewEventCardState extends State<NewEventCard>{
         .size
         .height;
     return CustomCard(
-      height: windowHeight * 3 / 4 + _yOffset,
+      height: windowHeight*3/4,
       yOffset: _yOffset,
       isVisible: widget.cardVisible,
       context: context,
@@ -53,7 +53,7 @@ class _NewEventCardState extends State<NewEventCard>{
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 40,
+                          height: 70,
                         ),
                         Row(
                           children: [
@@ -162,9 +162,16 @@ class _NewEventCardState extends State<NewEventCard>{
                                       ),
                                     ],
                                   ),
-                                  CustomDatePicker(
-                                    width: windowWidth/3+10,
+                                  LayoutBuilder(
+                                      builder: (context, constraints) {
+                                        return CustomDatePicker(
+                                          width: constraints.maxWidth-15,
+                                        );
+                                      }
                                   ),
+                                  // CustomDatePicker(
+                                  //   width: windowWidth/2-10,
+                                  // ),
                                 ],
                               ),
                             ),
@@ -196,8 +203,149 @@ class _NewEventCardState extends State<NewEventCard>{
                             )
                           ],
                         ),
+                        Row(
+                          children: [
+                            SizedBox(width: 20),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.fromLTRB(
+                                            0, 10, 0, 10),
+                                        child: CustomLabelTitle(
+                                          title: "Participants",
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  LayoutBuilder(
+                                      builder: (context, constraints) {
+                                        return Container(
+                                          width: constraints.maxWidth,
+                                          child: Wrap(
+                                            children: [
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Dung CT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Bach NL',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
+                                              Chip(
+                                                avatar: CircleAvatar(
+                                                  backgroundColor: Colors.white,
+                                                  child:  Icon(
+                                                    Icons.person,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: kPrimaryColor,
+                                                label: Text('Ngan NDT',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      }
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(
-                          height: 16,
+                          height: 20,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -225,19 +373,27 @@ class _NewEventCardState extends State<NewEventCard>{
                             'Cancel',
                           ),
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
                       ],
                     ),
                   ),
                 ),
                 Container(
                   width: windowWidth,
+                  height: 80,
                   alignment: Alignment.center,
+                  color: Colors.white,
                   child: Column(
                     children: [
                       SizedBox(
                         height: 16,
                       ),
                       DividerTopCard(),
+                      SizedBox(
+                        height: 16,
+                      ),
                       Text(
                         'CREATE NEW EVENT',
                         style: TextStyle(
