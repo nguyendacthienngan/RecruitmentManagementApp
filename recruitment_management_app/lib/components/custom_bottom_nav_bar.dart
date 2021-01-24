@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/pages/checkin/index/view/checkin_view.dart';
+import 'package:recruitment_management_app/pages/login/view/login_view.dart';
 import 'package:recruitment_management_app/pages/profile/user_profile/view/profile_view.dart';
 import 'package:recruitment_management_app/pages/calendar/view/calendar_view.dart';
 import 'package:recruitment_management_app/pages/timeoff/view/timeoff_view.dart';
 import '../enums.dart';
 import '../pages/home/index/view/home_view.dart';
-
+import 'package:recruitment_management_app/globals.dart' as globals;
 class CustomBottomNavBar extends StatelessWidget {
 
   const CustomBottomNavBar({
@@ -30,10 +31,6 @@ class CustomBottomNavBar extends StatelessWidget {
             color: Color(0xFFDADADA).withOpacity(0.15),
           ),
         ],
-        // borderRadius: BorderRadius.only(
-        //   topLeft: Radius.circular(40),
-        //   topRight: Radius.circular(40),
-        // ),
       ),
       child: SafeArea(
           top: false,
@@ -70,7 +67,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
+              globals.role == 0 ? Container(width: 0.0, height: 0.0) : Column(
                 mainAxisSize: MainAxisSize.min, // Important
                 children: [
                   SizedBox(
@@ -100,7 +97,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
+              globals.role == 0 ? Container(width: 0.0, height: 0.0) : Column(
                 mainAxisSize: MainAxisSize.min, // Important
                 children: [
                   SizedBox(
@@ -161,7 +158,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
+              globals.role == 0 ? Container(width: 0.0, height: 0.0) :Column(
                 mainAxisSize: MainAxisSize.min, // Important
                 children: [
                   SizedBox(
@@ -185,6 +182,36 @@ class CustomBottomNavBar extends StatelessWidget {
                   ),
                   Text(
                     "Profile",
+                    style: TextStyle(
+                      color: selectedMenu == MenuState.profile ? kPrimaryColor : inActiveIconColor,
+                    ),
+                  ),
+                ],
+              ),
+              globals.role != 0 ? Container(width: 0.0, height: 0.0) :Column(
+                mainAxisSize: MainAxisSize.min, // Important
+                children: [
+                  SizedBox(
+                    height: 35,
+                    child: IconButton(
+                        icon: Icon(
+                          Icons.login_sharp,
+                          color: selectedMenu == MenuState.login ? kPrimaryColor : inActiveIconColor,
+                        ),
+                        onPressed: () =>
+                        {
+                          if (selectedMenu != MenuState.login)
+                            {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(builder: (context) => LoginPage()),
+                                    (Route<dynamic> route) => false,),
+                            }
+                        }
+                    ),
+                  ),
+                  Text(
+                    "Sign In",
                     style: TextStyle(
                       color: selectedMenu == MenuState.profile ? kPrimaryColor : inActiveIconColor,
                     ),
