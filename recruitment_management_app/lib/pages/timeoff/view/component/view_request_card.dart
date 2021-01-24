@@ -4,11 +4,14 @@ import 'package:recruitment_management_app/components/button/primary_button_comp
 import 'package:recruitment_management_app/components/card/custom_card.dart';
 import 'package:recruitment_management_app/components/divider_top_card_component.dart';
 import 'package:recruitment_management_app/components/label/label_title_component.dart';
+import 'package:recruitment_management_app/utils.dart';
+import 'package:recruitment_management_app/models/timeoff.model.dart';
 
 // ignore: must_be_immutable
 class ViewRequestCard extends StatefulWidget{
   bool cardVisible;
-  ViewRequestCard({this.cardVisible=false});
+  final TimeOff item;
+  ViewRequestCard({this.cardVisible=false,this.item});
   _ViewRequestCardState createState() => _ViewRequestCardState();
 }
 
@@ -72,7 +75,8 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                         return SizedBox(
                                           width: constraints.maxWidth-10,
                                           child: Text(
-                                            'date',
+                                              convertDateFromString(widget.item.start_date),
+                                            //'date',
                                           ),
                                         );
                                       }
@@ -100,7 +104,7 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                         return SizedBox(
                                           width: constraints.maxWidth-10,
                                           child: Text(
-                                            'date',
+                                            convertDateFromString(widget.item.end_date),
                                           ),
                                         );
                                       }
@@ -137,6 +141,7 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                         return SizedBox(
                                           width: constraints.maxWidth,
                                           child: Text(
+
                                             'Sick leave',
                                           ),
                                         );

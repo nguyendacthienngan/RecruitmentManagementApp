@@ -7,7 +7,7 @@ import 'package:recruitment_management_app/constants.dart';
 String url = root + "employees/";
 Future<List<Employee>> fetchEmployees() async {
   final response = await http.get(
-      'url');
+      url);
   if (response.statusCode == 200) {
     return decodeEmployees(response.body);
   } else {
