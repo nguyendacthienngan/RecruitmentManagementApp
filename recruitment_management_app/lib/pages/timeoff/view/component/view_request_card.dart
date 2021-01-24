@@ -19,6 +19,10 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
   double windowWidth = 0;
   double windowHeight = 0;
   double _yOffset=100;
+
+  void initState() {
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     windowWidth = MediaQuery
@@ -75,8 +79,8 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                         return SizedBox(
                                           width: constraints.maxWidth-10,
                                           child: Text(
-                                              convertDateFromString(widget.item.start_date),
-                                            //'date',
+                                            convertDateFromString(widget.item.start_date==null? DateTime.now().toString():widget.item.start_date),
+                                              //_startdate,
                                           ),
                                         );
                                       }
@@ -104,7 +108,8 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                         return SizedBox(
                                           width: constraints.maxWidth-10,
                                           child: Text(
-                                            convertDateFromString(widget.item.end_date),
+                                            convertDateFromString(widget.item.end_date==null? DateTime.now().toString():widget.item.end_date),
+                                           // _enddate,
                                           ),
                                         );
                                       }
@@ -141,7 +146,7 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                         return SizedBox(
                                           width: constraints.maxWidth,
                                           child: Text(
-
+                                           // _leavetype,
                                             'Sick leave',
                                           ),
                                         );
@@ -179,7 +184,8 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                                         return SizedBox(
                                           width: constraints.maxWidth,
                                           child: Text(
-                                            'X days',
+                                            widget.item.day_off==null? '0': widget.item.day_off
+                                           // 'X days',
                                           ),
                                         );
                                       }

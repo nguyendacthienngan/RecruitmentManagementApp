@@ -1,3 +1,5 @@
+import 'package:recruitment_management_app/models/employee.model.dart';
+
 class TimeOff {
   final int timeoff_id;
   final int leave_type;
