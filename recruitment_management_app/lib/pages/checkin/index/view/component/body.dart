@@ -4,6 +4,7 @@ import 'package:recruitment_management_app/components/dropdown/dark_dropdown_but
 import 'package:recruitment_management_app/main.dart';
 import 'package:recruitment_management_app/pages/checkin/index/view/component/dark_card.dart';
 import 'package:recruitment_management_app/pages/checkin/index/view/component/gradient_card.dart';
+import 'package:recruitment_management_app/globals.dart' as globals;
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -58,9 +59,15 @@ class Body extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                child: GradientCheckInCard(),
+              GestureDetector(
+                onTap: () => {
+                  if (globals.role == 0)
+                    Navigator.pushNamed(context, "/checkInSteps")
+                },
+                child: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: GradientCheckInCard(),
+                ),
               ),
               Row(
                 children: [
@@ -78,7 +85,8 @@ class Body extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () => {
-                  Navigator.pushNamed(context, "/checkInSteps")
+                 if (globals.role == 0)
+                   Navigator.pushNamed(context, "/checkInSteps")
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20),
