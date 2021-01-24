@@ -1,14 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/utils.dart';
+import 'package:recruitment_management_app/models/timeoff.model.dart';
 
 class RequestLabel extends StatelessWidget
 {
+  final TimeOff item;
+  String _leavetype=" ",_status=" ";
   double windowWidth = 0;
   double windowHeight = 0;
   GestureTapCallback onTap;
-  RequestLabel({this.onTap});
+  RequestLabel({this.onTap,this.item});
   @override
   Widget build(BuildContext context) {
+    if(item.leave_type==1)
+      _leavetype='Sick Leave';
+    else _leavetype='Another';
+    if(item.event_status==1)
+      _status='Accepted';
+    else
+      _status='Pending';
     windowWidth = MediaQuery.of(context).size.width;
     windowHeight = MediaQuery.of(context).size.height;
    return Column(
@@ -29,7 +42,8 @@ class RequestLabel extends StatelessWidget
                crossAxisAlignment: CrossAxisAlignment.start,
                children: [
                  new Text(
-                   '<date> ~ <date>',
+                   convertDateFromString(item.start_date)+ " ~ " + convertDateFromString(item.end_date),
+                   //'<date> ~ <date>',
                    style: TextStyle(
                      fontWeight: FontWeight.bold,
                      fontSize: 14,
@@ -46,7 +60,8 @@ class RequestLabel extends StatelessWidget
                        size: 14,
                      ),
                      Text(
-                       'Pending',
+                      _status,
+                      // 'Pending',
                        style: TextStyle(
                          fontStyle: FontStyle.italic,
                          color: kPrimaryColor,
@@ -55,7 +70,7 @@ class RequestLabel extends StatelessWidget
                    ],
                  ),
                  Text(
-                   'Leave Type: Sick leave',
+                   'Leave Type: ' + _leavetype ,
                    style: TextStyle(
                      fontSize: 14,
                    ),

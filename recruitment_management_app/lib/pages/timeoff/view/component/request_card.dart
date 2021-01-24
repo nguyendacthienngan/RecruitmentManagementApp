@@ -8,11 +8,12 @@ import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/components/datetimepicker/textfield_datepicker.dart';
 import 'package:recruitment_management_app/components/button/gradient_button_component.dart';
 import 'package:recruitment_management_app/components/dropdown/dropdown_button_component.dart';
+import 'package:recruitment_management_app/models/timeoff.model.dart';
 
 // ignore: must_be_immutable
 class RequestCard extends StatefulWidget{
   bool cardVisible;
-  RequestCard({this.cardVisible=false});
+  RequestCard({this.cardVisible=false,});
   _RequestCardState createState() => _RequestCardState();
 }
 
