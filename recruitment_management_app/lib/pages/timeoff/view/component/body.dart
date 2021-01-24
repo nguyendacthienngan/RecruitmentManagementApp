@@ -25,39 +25,38 @@ class _BodyState extends State<Body>{
   @override
   Widget build(BuildContext context) {
     return Container(
-          child: SingleChildScrollView(
-            child:  Column(
-              children: [
-                SegmentedControl(
-                  children: segmentedcontrolChildren,
-                  currentSelection: _currentSelection,
-                  onSegmentChosen: (index){
-                    setState(() {
-                      _currentSelection=index;
-                      if(index==0) {
-                        _subWidget= MineSubBody();
-                      }
-                      else {
-                        _subWidget= TeamSubBody();
-                      }
-                    });
-                  },
-                ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SegmentedControl(
+              children: segmentedcontrolChildren,
+              currentSelection: _currentSelection,
+              onSegmentChosen: (index) {
+                setState(() {
+                  _currentSelection = index;
+                  if (index == 0) {
+                    _subWidget = MineSubBody();
+                  }
+                  else {
+                    _subWidget = TeamSubBody();
+                  }
+                });
+              },
+            ),
             AnimatedSwitcher(
               child: _subWidget,
-              duration: Duration(milliseconds:500),
+              duration: Duration(milliseconds: 500),
               switchInCurve: Curves.easeInBack,
               switchOutCurve: Curves.easeInBack,
-              transitionBuilder: (Widget child, Animation<double> animation)=>
+              transitionBuilder: (Widget child, Animation<double> animation) =>
                   SizeTransition(
                     child: child,
                     sizeFactor: animation,
                   ),
             ),
-              ],
-            ),
-          ),
-
+          ],
+        ),
+      ),
     );
   }
 

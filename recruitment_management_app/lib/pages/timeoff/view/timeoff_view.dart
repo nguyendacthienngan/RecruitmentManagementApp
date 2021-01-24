@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:recruitment_management_app/components/calendar_component.dart';
 import 'package:recruitment_management_app/main.dart';
-import 'file:///E:/hoc/HK1-2020-2021/OOAD-Mobile/RecruitmentManagementApp/recruitment_management_app/lib/pages/timeoff/timeoff_request/view/timeoff_request_view.dart';
+import 'package:recruitment_management_app/pages/timeoff/timeoff_request/view/timeoff_request_view.dart';
 import '../../../enums.dart';
 import './component/body.dart';
 import 'package:recruitment_management_app/constants.dart';
