@@ -46,7 +46,7 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 40,
+                          height:70,
                         ),
                         Row(
                           children: [
@@ -219,13 +219,18 @@ class _ViewRequestCardState extends State<ViewRequestCard>{
                 ),
                 Container(
                   width: windowWidth,
+                  height: 80,
                   alignment: Alignment.center,
+                  color: Colors.white,
                   child: Column(
                     children: [
                       SizedBox(
                         height: 16,
                       ),
                       DividerTopCard(),
+                      SizedBox(
+                        height: 16,
+                      ),
                       Text(
                         'MY REQUEST TIME OFF',
                         style: TextStyle(
