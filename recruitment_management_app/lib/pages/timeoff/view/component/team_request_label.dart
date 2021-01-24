@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
-
+import 'package:recruitment_management_app/models/teamtimeoff.model.dart';
+import 'package:recruitment_management_app/utils.dart';
+import 'package:tiengviet/tiengviet.dart';
 class TeamRequestLabel extends StatelessWidget
 {
+  TeamTimeOff item;
   double windowWidth = 0;
   double windowHeight = 0;
   GestureTapCallback onTap;
-  TeamRequestLabel({this.onTap});
+  TeamRequestLabel({this.onTap,this.item});
   @override
   Widget build(BuildContext context) {
     windowWidth = MediaQuery.of(context).size.width;
@@ -29,14 +32,16 @@ class TeamRequestLabel extends StatelessWidget
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Nguyen Dac Thien Ngan',
+                  TiengViet.parse(item.last_name) + " " + TiengViet.parse(item.first_name),
+                 // 'Nguyen Dac Thien Ngan',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
                   ),
                 ),
                 new Text(
-                  'Web Intern',
+                  item.title_name,
+                  //'Web Intern',
                   style: TextStyle(
                     fontSize: 14,
                   ),
@@ -44,18 +49,20 @@ class TeamRequestLabel extends StatelessWidget
                 Row(
                   children: [
                     Text(
-                      'x days',
+                      'Day off: '+ item.day_off,
+                      //'x days',
                     ),
                     SizedBox(
                       width: 16,
                     ),
                     Text(
-                      '<date>~<date>'
+                      'From '+ convertDateFromString(item.start_date)+ " to " + convertDateFromString(item.end_date),
+                      //'<date>~<date>'
                     ),
                   ],
                 ),
                 Text(
-                  'Leave Type: Sick leave',
+                  'Leave Type: ' + item.leave_type.toString(),
                   style: TextStyle(
                     fontSize: 14,
                   ),

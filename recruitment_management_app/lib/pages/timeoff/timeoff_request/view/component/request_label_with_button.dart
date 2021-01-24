@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/components/button/gradient_button_component.dart';
 import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/models/teamtimeoff.model.dart';
+import 'package:recruitment_management_app/utils.dart';
+import 'package:tiengviet/tiengviet.dart';
 
 class RequestLabel extends StatefulWidget{
+  final TeamTimeOff item;
+  RequestLabel({this.item});
   @override
   _RequestLabel createState() => _RequestLabel();
 }
@@ -37,14 +42,14 @@ class _RequestLabel extends State<RequestLabel>{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Nguyen Dac Thien Ngan',
+                TiengViet.parse(widget.item.last_name) + " " + TiengViet.parse(widget.item.first_name),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
               ),
               new Text(
-                'Web Intern',
+                widget.item.title_name,
                 style: TextStyle(
                   fontSize: 14,
                 ),
@@ -52,18 +57,18 @@ class _RequestLabel extends State<RequestLabel>{
               Row(
                 children: [
                   Text(
-                    'x days',
+                    'Day off: '+ widget.item.day_off,
                   ),
                   SizedBox(
                     width: 16,
                   ),
                   Text(
-                      '<date>~<date>'
+                    'From '+ convertDateFromString(widget.item.start_date)+ " to " + convertDateFromString(widget.item.end_date),
                   ),
                 ],
               ),
               Text(
-                'Leave Type: Sick leave',
+                'Leave Type: ' + widget.item.leave_type.toString(),
                 style: TextStyle(
                   fontSize: 14,
                 ),
