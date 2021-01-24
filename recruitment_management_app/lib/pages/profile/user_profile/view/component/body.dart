@@ -6,7 +6,7 @@ import 'package:recruitment_management_app/components/dropdown/white_dropdown_bu
 import 'package:recruitment_management_app/models/employee.model.dart';
 import 'package:recruitment_management_app/pages/profile/user_profile/presenter/controller.dart';
 import 'package:tiengviet/tiengviet.dart';
-
+import 'package:recruitment_management_app/globals.dart' as globals;
 class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
@@ -18,7 +18,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    futureEmployee = fetchEmployee();
+    futureEmployee = fetchEmployee(globals.employeeID);
   }
   @override
   Widget build(BuildContext context) {

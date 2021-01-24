@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/globals.dart' as globals;
 import 'package:intl/intl.dart';
 import 'package:recruitment_management_app/models/employee.model.dart';
 import 'package:recruitment_management_app/pages/home/index/presenter/controller.dart';
@@ -22,7 +23,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    futureEmployee = fetchEmployee();
+    futureEmployee = fetchEmployee(globals.employeeID);
     _timer = Timer.periodic(
       Duration(minutes: 1),
           (Timer t) => setState(() {

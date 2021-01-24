@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:recruitment_management_app/models/employee.model.dart';
 import 'package:http/http.dart' as http;
 import 'package:recruitment_management_app/constants.dart';
-
+import 'package:recruitment_management_app/globals.dart' as globals;
 String url = root + "employees/";
-Future<Employee> fetchEmployee() async {
-  final response = await http.get(url + "1");
+Future<Employee> fetchEmployee(int id) async {
+  final response = await http.get(url + id.toString());
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
