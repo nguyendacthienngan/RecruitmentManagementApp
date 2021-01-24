@@ -21,11 +21,36 @@ class _BodyState extends State<Body> {
   Future<Employee> futureEmployee;
   List<String> gender = ["Female", "Male"];
   List<String> marital = ["Single", "Married"];
+  int genderInput = -1;
+  int maritialStatusInput = -1;
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
+  final emailController = TextEditingController();
+  final addressController = TextEditingController(text: "Bach");
+  final DOBController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
     futureEmployee = fetchEmployee(globals.employeeID);
   }
+
+  update()
+  {
+    var firstName = firstNameController.text;
+    var lastName = lastNameController.text;
+    var email = emailController.text;
+    var address = addressController.text;
+    setState(() {
+      if (firstName!= null && lastName != null
+      && email != null && address != null
+      )
+       updateEmployee(firstName, lastName, email, address){
+         Navigator.pop(context) ;
+       }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,6 +84,7 @@ class _BodyState extends State<Body> {
                           LayoutBuilder(
                               builder: (context, constraints) {
                                 return SmallInput(
+                                  controller: firstNameController..text = snapshot.data.first_name,
                                   hint: TiengViet.parse(snapshot.data.first_name),
                                   width: constraints.maxWidth -48,
                                   height: 50,
@@ -86,6 +112,7 @@ class _BodyState extends State<Body> {
                           LayoutBuilder(
                               builder: (context, constraints) {
                                 return SmallInput(
+                                  controller: lastNameController..text = snapshot.data.last_name,
                                   hint: TiengViet.parse(snapshot.data.last_name),
                                   width: constraints.maxWidth -48,
                                   height: 50,
@@ -118,6 +145,7 @@ class _BodyState extends State<Body> {
                             LayoutBuilder(
                                 builder: (context, constraints) {
                                   return SmallInput(
+                                    controller: emailController..text = snapshot.data.email,
                                     hint: snapshot.data.email,
                                     width: constraints.maxWidth -48,
                                     height: 50,
@@ -145,6 +173,7 @@ class _BodyState extends State<Body> {
                             LayoutBuilder(
                                 builder: (context, constraints) {
                                   return SmallInput(
+                                      controller: addressController..text = snapshot.data.address,
                                     hint: TiengViet.parse(snapshot.data.address),
                                     width: constraints.maxWidth -48,
                                     height: 50,
@@ -246,6 +275,15 @@ class _BodyState extends State<Body> {
                       ),
                       GestureDetector(
                         onTap: () {
+                          var firstName = firstNameController.text;
+                          var lastName = lastNameController.text;
+                          var email = emailController.text;
+                          var address = addressController.text;
+                          if (firstName!= null && lastName != null
+                              && email != null && address != null)
+                            updateEmployee(firstName, lastName, email, address){
+                              Navigator.pop(context) ;
+                            }
                         },
                         child: GradientButton(
                           btnText: "Save",

@@ -14,7 +14,6 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   Future<Employee> futureEmployee;
-
   @override
   void initState() {
     super.initState();
@@ -57,12 +56,6 @@ class _BodyState extends State<Body> {
                 title: "Personal Info",
                 onTap: () => {
                   Navigator.pushNamed(context, '/personalInfo')
-                }
-              ),
-              CardNavigator(
-                title: "Job Information",
-                onTap: () => {
-                  Navigator.pushNamed(context, '/jobInfo')
                 }
               ),
               CardNavigator(

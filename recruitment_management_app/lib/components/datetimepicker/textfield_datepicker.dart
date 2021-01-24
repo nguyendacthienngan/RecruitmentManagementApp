@@ -6,10 +6,12 @@ class CustomDatePicker extends StatefulWidget{
   final double width;
   final double height;
   final ColorScheme colorScheme;
+  final TextEditingController controller;
   CustomDatePicker({
     this.width=200,
     this.height=50,
     this.colorScheme =const ColorScheme.light(primary: kPrimaryColor),
+    this.controller
   });
   @override
   _CustomDatePickerState createState() => _CustomDatePickerState();
@@ -52,6 +54,7 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
             width: widget.width,
             height: widget.height,
             child: TextFormField(
+              controller: widget.controller,
               textAlign: TextAlign.center,
               readOnly: true,
               onTap: () {

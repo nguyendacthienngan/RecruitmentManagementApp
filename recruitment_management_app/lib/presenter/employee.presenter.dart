@@ -4,6 +4,28 @@ import 'package:recruitment_management_app/models/employee.model.dart';
 import 'package:http/http.dart' as http;
 import 'package:recruitment_management_app/constants.dart';
 String url = root + "employees/";
+
+Future<Employee> updateEmployee(String firstName, String lastName, String email, String address) async {
+  final http.Response response = await http.put(
+    url,
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'first_name': firstName,
+      'last_name': lastName,
+      'address': address,
+      'email': email,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    return Employee.fromJson(json.decode(response.body));
+  } else {
+    throw Exception('Failed to update employee.');
+  }
+}
+
 Future<Employee> fetchEmployee(int id) async {
   final response = await http.get(url + id.toString());
 
@@ -32,20 +54,3 @@ List<Employee> decodeEmployee(String responseBody) {
   return parsed.map<Employee>((json) => Employee.fromMap(json)).toList();
 }
 
-Future<Employee> updateEmployee(String title) async {
-  final http.Response response = await http.put(
-    'url',
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: jsonEncode(<String, String>{
-      'title': title,
-    }),
-  );
-
-  if (response.statusCode == 200) {
-    return Employee.fromJson(json.decode(response.body));
-  } else {
-    throw Exception('Failed to update album.');
-  }
-}

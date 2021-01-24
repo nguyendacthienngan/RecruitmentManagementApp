@@ -5,8 +5,9 @@ class SmallInput extends StatefulWidget {
   final String hint;
   final double width;
   final double height;
+  final TextEditingController controller;
   //InputWithIcon({this.icon, this.hint, this.height})
-  SmallInput({this.hint, this.width, this.height});
+  SmallInput({this.hint, this.width, this.height, this.controller});
 
   @override
   _SmallInputState createState() => _SmallInputState();
@@ -34,6 +35,7 @@ class _SmallInputState extends State<SmallInput> {
             child: Container(
               width: widget.width,
               child: TextField(
+                controller: widget.controller,
                 style: TextStyle(color: kPrimaryColor),
                 decoration: InputDecoration(
                   hintStyle: TextStyle(color: kPrimaryColor),
