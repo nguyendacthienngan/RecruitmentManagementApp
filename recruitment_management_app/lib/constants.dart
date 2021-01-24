@@ -43,3 +43,8 @@ Map<int, Widget> segmentedcontrolChildren = {
     ),
   ),
 };
+Map<int,String> leaveType={
+  1: 'Sick Leave',
+  2: 'Maternity/Paternity',
+  3: 'Casual Leave',
+};

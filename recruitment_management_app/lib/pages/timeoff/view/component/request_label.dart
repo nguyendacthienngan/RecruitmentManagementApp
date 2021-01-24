@@ -8,16 +8,13 @@ import 'package:recruitment_management_app/models/timeoff.model.dart';
 class RequestLabel extends StatelessWidget
 {
   final TimeOff item;
-  String _leavetype=" ",_status=" ";
+  String _status=" ";
   double windowWidth = 0;
   double windowHeight = 0;
   GestureTapCallback onTap;
   RequestLabel({this.onTap,this.item});
   @override
   Widget build(BuildContext context) {
-    if(item.leave_type==1)
-      _leavetype='Sick Leave';
-    else _leavetype='Another';
     if(item.event_status==1)
       _status='Accepted';
     else
@@ -70,7 +67,7 @@ class RequestLabel extends StatelessWidget
                    ],
                  ),
                  Text(
-                   'Leave Type: ' + _leavetype ,
+                   'Leave Type: ' +  leaveType[item.leave_type] ,
                    style: TextStyle(
                      fontSize: 14,
                    ),

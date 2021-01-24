@@ -62,7 +62,7 @@ class TeamRequestLabel extends StatelessWidget
                   ],
                 ),
                 Text(
-                  'Leave Type: ' + item.leave_type.toString(),
+                  'Leave Type: ' + leaveType[item.leave_type],
                   style: TextStyle(
                     fontSize: 14,
                   ),

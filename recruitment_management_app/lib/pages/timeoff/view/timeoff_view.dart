@@ -6,7 +6,7 @@ import '../../../enums.dart';
 import './component/body.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/components/custom_bottom_nav_bar.dart';
-
+import 'package:recruitment_management_app/globals.dart' as globals;
 class TimeOffPage extends StatefulWidget{
   static String routeName = "/timeoff";
   @override
@@ -29,16 +29,40 @@ class _TimeOffPageState extends State<TimeOffPage>{
         backgroundColor: kSecondaryColor,
         elevation: 0,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(
-                Icons.notifications,
-              color: kPrimaryColor,
-            ),
-            iconSize: 30,
-            onPressed: ()=>{
-              Navigator.pushNamed(context, TimeOffRequest().route)
+          LayoutBuilder(
+            builder: (context, constraint)
+            {
+              if (globals.role==2)
+              return IconButton(
+                icon: Icon(
+                  Icons.notifications,
+                  color: kPrimaryColor,
+                ),
+                iconSize: 30,
+                onPressed: ()=>{
+                  Navigator.pushNamed(context, TimeOffRequest().route)
+                },
+              );
+              else return IconButton(
+                icon: Icon(
+                  Icons.notifications,
+                  color: kPrimaryColor,
+                ),
+                iconSize: 1,
+                onPressed: null,
+              );
             },
           ),
+          // IconButton(
+          //   icon: Icon(
+          //     Icons.notifications,
+          //     color: kPrimaryColor,
+          //   ),
+          //   iconSize: 30,
+          //   onPressed: ()=>{
+          //     Navigator.pushNamed(context, TimeOffRequest().route)
+          //   },
+          // ),
         ],
       ),
       body:  Body(),

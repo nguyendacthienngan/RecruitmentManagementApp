@@ -68,7 +68,7 @@ class _RequestLabel extends State<RequestLabel>{
                 ],
               ),
               Text(
-                'Leave Type: ' + widget.item.leave_type.toString(),
+                'Leave Type: ' +  leaveType[widget.item.leave_type],
                 style: TextStyle(
                   fontSize: 14,
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/components/calendar_component.dart';
 import 'package:recruitment_management_app/main.dart';
+import 'package:recruitment_management_app/globals.dart' as globals;
 import 'package:recruitment_management_app/pages/calendar/calendar_request/view/calendar_request_view.dart';
 import '../../../enums.dart';
 import './component/body.dart';
@@ -30,14 +31,28 @@ class _CalendarPageState extends State<CalendarPage>{
         backgroundColor: kSecondaryColor,
         elevation: 0,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.notifications,
-              color: kPrimaryColor,
-            ),
-            iconSize: 30,
-            onPressed: ()=>{
-              Navigator.pushNamed(context, CalendarRequest().route)
+          LayoutBuilder(
+            builder: (context, constraint)
+            {
+              if (globals.role==2)
+                return IconButton(
+                  icon: Icon(
+                    Icons.notifications,
+                    color: kPrimaryColor,
+                  ),
+                  iconSize: 30,
+                  onPressed: ()=>{
+                    Navigator.pushNamed(context, CalendarRequest().route)
+                  },
+                );
+              else return IconButton(
+                icon: Icon(
+                  Icons.notifications,
+                  color: kPrimaryColor,
+                ),
+                iconSize: 1,
+                onPressed: null,
+              );
             },
           ),
         ],
