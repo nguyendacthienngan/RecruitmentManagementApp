@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:recruitment_management_app/components/card/custom_card.dart';
 import 'package:recruitment_management_app/components/divider_top_card_component.dart';
 import 'package:recruitment_management_app/components/label/label_info_component.dart';
@@ -209,10 +208,9 @@ class _RequestCardState extends State<RequestCard>{
                           onTap: () {
                             setState(() {
                               widget.cardVisible = false;
-                              //print(_startdate.text);
                               addTimeOff(TimeOff(
-                                start_date: DateFormat('dd-MM-yyyy').format(DateTime.parse(_startdate.text)),
-                                end_date: DateFormat('dd-MM-yyyy').format(DateTime.parse(_enddate.text)),
+                                start_date:_startdate.toString(),
+                                end_date: _enddate.toString(),
                                 leave_type: 1, // hardcode
                                 day_off: '0',
                               ));
