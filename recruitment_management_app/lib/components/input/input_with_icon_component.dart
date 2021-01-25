@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 class InputWithIcon extends StatefulWidget {
-
+  final bool isPassword;
   final IconData icon;
   final String hint;
   final TextEditingController controller;
-  InputWithIcon({this.icon, this.hint, this.controller});
+  InputWithIcon({this.icon, this.hint, this.controller, this.isPassword});
 
   @override
   _InputWithIconState createState() => _InputWithIconState();
@@ -16,6 +16,7 @@ class InputWithIcon extends StatefulWidget {
 class _InputWithIconState extends State<InputWithIcon> {
   @override
   Widget build(BuildContext context) {
+    bool password = widget.isPassword != null ? true : false;
     return Container(
       padding: EdgeInsets.only(left: 16, right: 16),
       decoration: BoxDecoration(
@@ -37,6 +38,7 @@ class _InputWithIconState extends State<InputWithIcon> {
           ),
           Expanded(
             child: TextField(
+             obscureText: password,
                 controller: widget.controller,
               style: TextStyle(color: kPrimaryColor),
               decoration: InputDecoration(

@@ -19,6 +19,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   Future<Employee> futureEmployee;
+  Future<Employee> futureUpdateEmployee;
   List<String> gender = ["Female", "Male"];
   List<String> marital = ["Single", "Married"];
   int genderInput = -1;
@@ -275,13 +276,8 @@ class _BodyState extends State<Body> {
                       ),
                       GestureDetector(
                         onTap: () {
-
-                         FutureBuilder<Employee> (
-                         future:  update(),
-                         builder:(context, snapshot) {
-                          print('In Builder');
-                          }
-                         );
+                          futureUpdateEmployee = updateEmployee(globals.employeeID, firstNameController.text, lastNameController.text, emailController.text, addressController.text);
+                          Navigator.pop(context);
                         },
                         child: GradientButton(
                           btnText: "Save",

@@ -42,7 +42,7 @@ class CardList extends StatelessWidget {
         for (int i = 0 ; i < items.length ; i++)
           GestureDetector(
             onTap: () => {
-              globals.currentCandidate = items[i],
+              //globals.currentCandidate = items[i],
               if (globals.role == 0)
                 Navigator.pushNamed(context, "/checkInSteps")
             },

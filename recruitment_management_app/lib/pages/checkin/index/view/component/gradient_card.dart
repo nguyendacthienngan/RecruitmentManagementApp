@@ -47,7 +47,8 @@ class GradientCheckInCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  candidate.first_name + " " + candidate.last_name,
+                 // "test",
+                  candidate.first_name == null ? "Chuong" : candidate.first_name ,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -56,7 +57,8 @@ class GradientCheckInCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5,),
                 Text(
-                  candidate.position == 3 ? "Developer" : "HR",
+                  candidate.position == null ? "Developer" : (candidate.position == 3 ? "Developer" : "HR"),
+                  //candidate.position == 3 ? "Developer" : "HR",
                   style: TextStyle(
                     color: Colors.white,
                   ),

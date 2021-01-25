@@ -5,8 +5,10 @@ import 'package:recruitment_management_app/models/contact.model.dart';
 import 'package:http/http.dart' as http;
 import 'package:recruitment_management_app/constants.dart';
 String url = root + "candidates/search/status/";
+//String url = root + "candidates/";
 
 Future<List<Candidate>> fetchCandidates(int status) async {
+//  final response = await http.get(url);
   final response = await http.get(url + status.toString());
   if (response.statusCode == 200) {
     return decodeEmployee(response.body);

@@ -5,13 +5,14 @@ import 'package:http/http.dart' as http;
 import 'package:recruitment_management_app/constants.dart';
 String url = root + "employees/";
 
-Future<Employee> updateEmployee(String firstName, String lastName, String email, String address) async {
+Future<Employee> updateEmployee(int id, String firstName, String lastName, String email, String address) async {
   final http.Response response = await http.put(
     url,
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
     body: jsonEncode(<String, String>{
+      'employee_id': id.toString(),
       'first_name': firstName,
       'last_name': lastName,
       'address': address,

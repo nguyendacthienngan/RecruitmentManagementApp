@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                             icon: Icons.vpn_key,
                             hint: "Enter password...",
                             controller: passwordController,
-
+                            isPassword: true,
                         ),
                         SizedBox(height: 50),
 
