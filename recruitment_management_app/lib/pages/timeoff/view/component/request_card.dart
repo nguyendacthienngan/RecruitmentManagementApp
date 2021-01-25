@@ -20,8 +20,8 @@ class RequestCard extends StatefulWidget{
 
 class _RequestCardState extends State<RequestCard>{
   TimeOff additem;
-  TextEditingController _startdate;
-  TextEditingController _enddate;
+  TextEditingController _startdate=TextEditingController();
+  TextEditingController _enddate=TextEditingController();
   double windowWidth = 0;
   double windowHeight = 0;
   double _yOffset=20;
@@ -208,9 +208,11 @@ class _RequestCardState extends State<RequestCard>{
                           onTap: () {
                             setState(() {
                               widget.cardVisible = false;
+                              // print(_startdate.text);
+                              // print(_enddate.text);
                               addTimeOff(TimeOff(
-                                start_date:_startdate.toString(),
-                                end_date: _enddate.toString(),
+                                start_date:_startdate.text,
+                                end_date: _enddate.text,
                                 leave_type: 1, // hardcode
                                 day_off: '0',
                               ));

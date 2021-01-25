@@ -23,20 +23,20 @@ List<TimeOff> decodeTimeOffs(String responseBody) {
 Future<TimeOff> addTimeOff(TimeOff item) async {
   Map data={
     'event_name': 'Timeoff',
-    'leave_type': item.leave_type,
+    'leave_type_id': 1,//item.leave_type,
     'day_off': item.day_off,
     'announcement': 'Time Off',
     'start_date': item.start_date,
     'end_date': item.end_date,
-    'employee_id': globals.employeeID,
+    'employee_id': 1,//globals.employeeID,
   };
-  final http.Response response = await http.post(url + "v1/local-events-timeoff/add",
+  final http.Response response = await http.post(root + "local-events-timeoff/add",
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
     body: jsonEncode(data),
   );
-  if (response.statusCode == 200) {
+  if (response.statusCode == 200 || response.statusCode == 201) {
     return TimeOff.fromJson(json.decode(response.body));
   } else {
     throw Exception('Failed to load album');

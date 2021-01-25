@@ -41,6 +41,7 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
       {
         setState(() {
           date =_datePicker;
+          widget.controller.text = date.toString();
           formattedDate = DateFormat('dd-MM-yyyy').format(date);
         });
       }
@@ -54,7 +55,7 @@ class _CustomDatePickerState extends State<CustomDatePicker>{
             width: widget.width,
             height: widget.height,
             child: TextFormField(
-              controller: widget.controller,
+              controller: widget.controller ,
               textAlign: TextAlign.center,
               readOnly: true,
               onTap: () {
