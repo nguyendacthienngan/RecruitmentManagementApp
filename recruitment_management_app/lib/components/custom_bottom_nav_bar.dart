@@ -195,7 +195,8 @@ class CustomBottomNavBar extends StatelessWidget {
                     height: 35,
                     child: IconButton(
                         icon: Icon(
-                          Icons.login_sharp,
+                          Icons.favorite,
+                          //Icons.login_sharp,
                           color: selectedMenu == MenuState.login ? kPrimaryColor : inActiveIconColor,
                         ),
                         onPressed: () =>

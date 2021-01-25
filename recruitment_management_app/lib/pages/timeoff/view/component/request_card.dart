@@ -9,6 +9,7 @@ import 'package:recruitment_management_app/components/datetimepicker/textfield_d
 import 'package:recruitment_management_app/components/button/gradient_button_component.dart';
 import 'package:recruitment_management_app/components/dropdown/dropdown_button_component.dart';
 import 'package:recruitment_management_app/models/timeoff.model.dart';
+import 'package:recruitment_management_app/pages/timeoff/presenter/controller.dart';
 
 // ignore: must_be_immutable
 class RequestCard extends StatefulWidget{
@@ -18,6 +19,9 @@ class RequestCard extends StatefulWidget{
 }
 
 class _RequestCardState extends State<RequestCard>{
+  TimeOff additem;
+  TextEditingController _startdate;
+  TextEditingController _enddate;
   double windowWidth = 0;
   double windowHeight = 0;
   double _yOffset=20;
@@ -75,6 +79,7 @@ class _RequestCardState extends State<RequestCard>{
                                   LayoutBuilder(
                                       builder: (context, constraints) {
                                         return CustomDatePicker(
+                                          controller: _startdate,
                                           width: constraints.maxWidth-10,
                                         );
                                       }
@@ -100,6 +105,7 @@ class _RequestCardState extends State<RequestCard>{
                                   LayoutBuilder(
                                       builder: (context, constraints) {
                                         return CustomDatePicker(
+                                          controller: _enddate,
                                           width: constraints.maxWidth-10,
                                         );
                                       }
@@ -133,7 +139,7 @@ class _RequestCardState extends State<RequestCard>{
                                         return CustomDropdownButton(
                                           width: constraints.maxWidth/2 -10,
                                           hintText: "Sick Leave",
-                                          listItem: ["Sick Leave", "Casual Leave"],
+                                          listItem: leaveType.values.toList(),
                                         );
                                       }
                                   ),
@@ -202,6 +208,12 @@ class _RequestCardState extends State<RequestCard>{
                           onTap: () {
                             setState(() {
                               widget.cardVisible = false;
+                              addTimeOff(TimeOff(
+                                start_date:_startdate.toString(),
+                                end_date: _enddate.toString(),
+                                leave_type: 1, // hardcode
+                                day_off: '0',
+                              ));
                               print('Save');
                             });
                           },
