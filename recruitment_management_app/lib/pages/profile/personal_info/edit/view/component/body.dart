@@ -275,15 +275,13 @@ class _BodyState extends State<Body> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          var firstName = firstNameController.text;
-                          var lastName = lastNameController.text;
-                          var email = emailController.text;
-                          var address = addressController.text;
-                          if (firstName!= null && lastName != null
-                              && email != null && address != null)
-                            updateEmployee(firstName, lastName, email, address){
-                              Navigator.pop(context) ;
-                            }
+
+                         FutureBuilder<Employee> (
+                         future:  update(),
+                         builder:(context, snapshot) {
+                          print('In Builder');
+                          }
+                         );
                         },
                         child: GradientButton(
                           btnText: "Save",

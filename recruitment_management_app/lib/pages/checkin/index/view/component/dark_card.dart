@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
+import 'package:recruitment_management_app/models/candidate.model.dart';
 class DarkCheckInCard extends StatelessWidget {
+  final Candidate candidate;
+
+  DarkCheckInCard ({this.candidate});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +48,7 @@ class DarkCheckInCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Nguyen Dac Thien Ngan",
+                  candidate.first_name + " " + candidate.last_name,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -53,7 +57,7 @@ class DarkCheckInCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5,),
                 Text(
-                  "Web intern",
+                  candidate.position == 3 ? "Developer" : "HR",
                   style: TextStyle(
                     color: Colors.white,
                   ),

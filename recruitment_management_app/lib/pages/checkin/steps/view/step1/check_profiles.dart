@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/components/button/edit_button_component.dart';
 import 'package:recruitment_management_app/components/label/label_info_component.dart';
-
 class CheckProfileStep extends StatefulWidget {
   @override
   _CheckProfileStepState createState() => _CheckProfileStepState();
 }
 
 class _CheckProfileStepState extends State<CheckProfileStep> {
+
 
   @override
   Widget build(BuildContext context) {
