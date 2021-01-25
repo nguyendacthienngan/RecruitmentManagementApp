@@ -128,36 +128,36 @@ class CustomBottomNavBar extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
-                mainAxisSize: MainAxisSize.min, // Important
-                children: [
-                  SizedBox(
-                    height: 35,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.camera,
-                        color: selectedMenu == MenuState.checkIn ? kPrimaryColor : inActiveIconColor,
-                      ),
-                      onPressed: () =>
-                      {
-                        if (selectedMenu != MenuState.checkIn)
-                          {
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => CheckInPage()),
-                                  (Route<dynamic> route) => false,),
-                          }
-                      }
-                    ),
-                  ),
-                  Text(
-                    "Check In",
-                    style: TextStyle(
-                      color: selectedMenu == MenuState.checkIn ? kPrimaryColor : inActiveIconColor,
-                    ),
-                  ),
-                ],
-              ),
+              // Column(
+              //   mainAxisSize: MainAxisSize.min, // Important
+              //   children: [
+              //     SizedBox(
+              //       height: 35,
+              //       child: IconButton(
+              //         icon: Icon(
+              //           Icons.camera,
+              //           color: selectedMenu == MenuState.checkIn ? kPrimaryColor : inActiveIconColor,
+              //         ),
+              //         onPressed: () =>
+              //         {
+              //           if (selectedMenu != MenuState.checkIn)
+              //             {
+              //               Navigator.pushAndRemoveUntil(
+              //                 context,
+              //                 MaterialPageRoute(builder: (context) => CheckInPage()),
+              //                     (Route<dynamic> route) => false,),
+              //             }
+              //         }
+              //       ),
+              //     ),
+              //     Text(
+              //       "Check In",
+              //       style: TextStyle(
+              //         color: selectedMenu == MenuState.checkIn ? kPrimaryColor : inActiveIconColor,
+              //       ),
+              //     ),
+              //   ],
+              // ),
               globals.role == 0 ? Container(width: 0.0, height: 0.0) :Column(
                 mainAxisSize: MainAxisSize.min, // Important
                 children: [
