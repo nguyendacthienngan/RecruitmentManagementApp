@@ -45,20 +45,20 @@ class _MineSubBodyState extends State<MineSubBody> {
                 CalendarCustom(
                   calendarController: calendarController,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      if(_vieweventcardVisible==true)
-                        _vieweventcardVisible=false;
-                      _neweventcardVisible=true;
-                      print('New event');
-                    });
-                  },
-                  child: GradientButton(
-                    btnText: "Create new event",
-                    width: 200,
-                  ),
-                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     setState(() {
+                //       if(_vieweventcardVisible==true)
+                //         _vieweventcardVisible=false;
+                //       _neweventcardVisible=true;
+                //       print('New event');
+                //     });
+                //   },
+                //   child: GradientButton(
+                //     btnText: "Create new event",
+                //     width: 200,
+                //   ),
+                // ),
                 SizedBox(
                   height: 16,
                 ),
