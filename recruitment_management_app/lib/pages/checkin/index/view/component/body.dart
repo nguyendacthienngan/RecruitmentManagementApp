@@ -9,13 +9,13 @@ import 'package:recruitment_management_app/globals.dart' as globals;
 import 'package:recruitment_management_app/presenter/candidate.presenter.dart';
 
 class GradientCardList extends StatelessWidget {
-  final List<Candidate> items;
-  GradientCardList({this.items});
+  //final List<Candidate> items;
+  //GradientCardList({this.items});
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (int i = 0 ; i < items.length ; i++)
+        for (int i = 0 ; i < 6 ; i++)
           GestureDetector(
             onTap: () => {
               if (globals.role == 0)
@@ -24,7 +24,6 @@ class GradientCardList extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.only(top: 20),
               child: GradientCheckInCard(
-                  candidate: items[i]
               ),
             ),
           ),
@@ -33,13 +32,11 @@ class GradientCardList extends StatelessWidget {
   }
 }
 class CardList extends StatelessWidget {
-  final List<Candidate> items;
-  CardList({this.items});
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (int i = 0 ; i < items.length ; i++)
+        for (int i = 0 ; i < 6 ; i++)
           GestureDetector(
             onTap: () => {
               //globals.currentCandidate = items[i],
@@ -49,7 +46,6 @@ class CardList extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.only(top: 20),
               child: DarkCheckInCard(
-                  candidate: items[i]
               ),
             ),
           ),
@@ -127,17 +123,7 @@ class _BodyState extends State<Body> {
                 ],
               ),
 
-              FutureBuilder(
-                future: futureCandidate1,
-                builder: (c, s) {
-                    if (s.hasData)
-                      {
-                        return GradientCardList(items: s.data);
-                      }
-                    else
-                       return CircularProgressIndicator();
-                }
-              ),
+              GradientCardList(),
 
               Row(
                 children: [
@@ -153,15 +139,7 @@ class _BodyState extends State<Body> {
                   ),
                 ],
               ),
-              FutureBuilder(
-                  future: futureCandidate2,
-                  builder: (c, s) {
-                    if (s.hasData)
-                      return CardList(items: s.data);
-                    else
-                      return CircularProgressIndicator();
-                  }
-              ),
+              CardList(),
             ],
           ),
         ),

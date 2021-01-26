@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:recruitment_management_app/constants.dart';
 import 'package:recruitment_management_app/models/candidate.model.dart';
 class GradientCheckInCard extends StatelessWidget {
-  final Candidate candidate;
-  GradientCheckInCard({this.candidate});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,8 +45,7 @@ class GradientCheckInCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                 // "test",
-                  candidate.first_name == null ? "Chuong" : candidate.first_name ,
+                  "Nguyen Dac Thien Ngan",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -57,7 +54,7 @@ class GradientCheckInCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5,),
                 Text(
-                  candidate.position == null ? "Developer" : (candidate.position == 3 ? "Developer" : "HR"),
+                  "Developer",
                   //candidate.position == 3 ? "Developer" : "HR",
                   style: TextStyle(
                     color: Colors.white,

@@ -56,7 +56,7 @@ List<TeamTimeOff> decodeTeamTimeOffs(String responseBody) {
 }
 
 Future<TimeOffStatus> fetchTimeOffStatus() async{
-  final response = await http.get(root + "local-events-timeoff/search/team/2");
+  final response = await http.get(root + "local-events-timeoff/search/team/1");
   if (response.statusCode == 200) {
     return TimeOffStatus.fromJson(jsonDecode(response.body));
   } else {

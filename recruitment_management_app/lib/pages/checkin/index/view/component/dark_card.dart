@@ -48,7 +48,7 @@ class DarkCheckInCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  candidate.first_name + " " + candidate.last_name,
+                  "Nguyen Dac Thien Ngan",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
@@ -57,7 +57,7 @@ class DarkCheckInCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5,),
                 Text(
-                  candidate.position == 3 ? "Developer" : "HR",
+                  "Developer",
                   style: TextStyle(
                     color: Colors.white,
                   ),

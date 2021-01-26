@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Karla",
         canvasColor: kSecondaryColor
       ),
-      initialRoute: '/home',
+      initialRoute: '/login',
       routes: <String, WidgetBuilder>{
         // Set routes for using the Navigator.
         '/': (BuildContext context) => new LoginPage(),
